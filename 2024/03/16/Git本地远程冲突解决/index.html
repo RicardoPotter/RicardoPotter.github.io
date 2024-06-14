@@ -13,7 +13,7 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://ricardopotter.github.io/2024/03/16/git本地远程冲突解决/"/>
+    <link rel="canonical" href="https://ricardopotter.github.io/RicardoBlog/2024/03/16/git本地远程冲突解决/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
@@ -21,25 +21,25 @@
         <meta name="description" content="问题描述（可以不看） 最速解决方法（省流）  问题描述（可以不看）当本地建立git仓库和远程代码托管平台上建立远程git仓库，两个动作并不匹配的时候，会出现一系列的同步问题。以我本次遇到的情况简述：先在本地建立并初始化一git repo，并在本地多次进行一系列 git add 和 git commit 操作，搭了本仓库的雏形； 12345git init UoB-Software-Toolscd">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git本地远程冲突解决">
-<meta property="og:url" content="http://ricardopotter.github.io/2024/03/16/Git%E6%9C%AC%E5%9C%B0%E8%BF%9C%E7%A8%8B%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/index.html">
+<meta property="og:url" content="https://ricardopotter.github.io/RicardoBlog/2024/03/16/Git%E6%9C%AC%E5%9C%B0%E8%BF%9C%E7%A8%8B%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="Ricardo Pu&#39;s Blog">
 <meta property="og:description" content="问题描述（可以不看） 最速解决方法（省流）  问题描述（可以不看）当本地建立git仓库和远程代码托管平台上建立远程git仓库，两个动作并不匹配的时候，会出现一系列的同步问题。以我本次遇到的情况简述：先在本地建立并初始化一git repo，并在本地多次进行一系列 git add 和 git commit 操作，搭了本仓库的雏形； 12345git init UoB-Software-Toolscd">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://ricardopotter.github.io/images/git_merge_failure.png">
+<meta property="og:image" content="https://ricardopotter.github.io/RicardoBlog/images/git_merge_failure.png">
 <meta property="article:published_time" content="2024-03-16T13:23:51.000Z">
 <meta property="article:modified_time" content="2024-06-04T00:46:21.644Z">
 <meta property="article:author" content="Ricardo Pu">
 <meta property="article:tag" content="Handy-Trick">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://ricardopotter.github.io/images/git_merge_failure.png">
+<meta name="twitter:image" content="https://ricardopotter.github.io/RicardoBlog/images/git_merge_failure.png">
     
     
     <!--- Icon Part-->
-    <link rel="icon" type="image/png" href="/images/Ricardo%E8%92%B2Logo.svg" sizes="192x192">
-    <link rel="apple-touch-icon" sizes="180x180" href="/images/Ricardo%E8%92%B2Logo.svg">
+    <link rel="icon" type="image/png" href="/RicardoBlog/images/Ricardo%E8%92%B2Logo.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/RicardoBlog/images/Ricardo%E8%92%B2Logo.svg">
     <meta name="theme-color" content="#008080">
-    <link rel="shortcut icon" href="/images/Ricardo%E8%92%B2Logo.svg">
+    <link rel="shortcut icon" href="/RicardoBlog/images/Ricardo%E8%92%B2Logo.svg">
     <!--- Page Info-->
     
     <title>
@@ -50,7 +50,7 @@
     </title>
 
     
-<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+<link rel="stylesheet" href="/RicardoBlog/fonts/Chillax/chillax.css">
 
 
     <!--- Inject Part-->
@@ -126,7 +126,7 @@
 
 <div class="preloader">
     
-<script src="/js/libs/anime.min.js"></script>
+<script src="/RicardoBlog/js/libs/anime.min.js"></script>
 
     <h1 class="ml13">
         Ricardo&#39;s Blog
@@ -208,20 +208,20 @@
     
 
     
-<link rel="stylesheet" href="/css/style.css">
+<link rel="stylesheet" href="/RicardoBlog/css/style.css">
 
 
     
         
-<link rel="stylesheet" href="/assets/build/styles.css">
+<link rel="stylesheet" href="/RicardoBlog/assets/build/styles.css">
 
     
 
     
-<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/RicardoBlog/fonts/fonts.css">
 
     
-<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+<link rel="stylesheet" href="/RicardoBlog/fonts/Satoshi/satoshi.css">
 
     <!--- Font Part-->
     
@@ -231,7 +231,7 @@
 
 
     <script id="hexo-configurations">
-    window.config = {"hostname":"ricardopotter.github.io","root":"/","language":"en"};
+    window.config = {"hostname":"ricardopotter.github.io","root":"/RicardoBlog/","language":"en"};
     window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":5,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#008080","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Ricardo's Blog","subtitle":{"text":["躲进小楼成一统","汉堡中的生菜","乌鸦的世界天鹅也有罪"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/RicardoMiles","instagram":"https://www.instagram.com/ricardomilesgarcia/","zhihu":null,"twitter":null,"email":"pujinjian@hotmail.com","steam":"https://steamcommunity.com/profiles/76561198400981711/","weibo":"https://weibo.com/u/3226308805"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-solid fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/About","Github":"https://github.com/RicardoMiles","Github2":"https://github.com/RicardoPotter","Blog":"https://ricardopotter.github.io/","Friends":"/Links"}},"Links":{"icon":"fa-regular fa-link","submenus":{"子昂的博客":"https://supgoon.com/","Google":"https://google.com","ChatGPT":"https://chatgpt.com/"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"躲进小楼成一统","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Links":{"path":"/links","icon":"fa-regular fa-link"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":5}},"footerStart":"2024/02/19 11:45:14"};
     window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
     window.data = {"masonry":false};
@@ -239,16 +239,16 @@
     
     <!--- Fontawesome Part-->
     
-<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+<link rel="stylesheet" href="/RicardoBlog/fontawesome/fontawesome.min.css">
 
     
-<link rel="stylesheet" href="/fontawesome/brands.min.css">
+<link rel="stylesheet" href="/RicardoBlog/fontawesome/brands.min.css">
 
     
-<link rel="stylesheet" href="/fontawesome/solid.min.css">
+<link rel="stylesheet" href="/RicardoBlog/fontawesome/solid.min.css">
 
     
-<link rel="stylesheet" href="/fontawesome/regular.min.css">
+<link rel="stylesheet" href="/RicardoBlog/fontawesome/regular.min.css">
 
     
     
@@ -283,11 +283,11 @@
     <div class="navbar-content ">
         <div class="left">
             
-                <a class="logo-image" href="/">
-                    <img src="/images/Ricardo%E8%92%B2Logo.svg">
+                <a class="logo-image" href="/RicardoBlog/">
+                    <img src="/RicardoBlog/images/Ricardo%E8%92%B2Logo.svg">
                 </a>
             
-            <a class="logo-title" href="/">
+            <a class="logo-title" href="/RicardoBlog/">
                 
                 Ricardo&#39;s Blog
                 
@@ -305,7 +305,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/"
+                                   href="/RicardoBlog/"
                                         >
                                     <i class="fa-regular fa-house fa-fw"></i>
                                     HOME
@@ -322,7 +322,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/archives"
+                                   href="/RicardoBlog/archives"
                                         >
                                     <i class="fa-regular fa-archive fa-fw"></i>
                                     ARCHIVES
@@ -339,7 +339,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/tags"
+                                   href="/RicardoBlog/tags"
                                         >
                                     <i class="fa-regular fa-tags fa-fw"></i>
                                     TAGS
@@ -356,7 +356,7 @@
                             <li class="navbar-item">
                                 <!-- Menu -->
                                 <a class=""
-                                   href="/categories"
+                                   href="/RicardoBlog/categories"
                                         >
                                     <i class="fa-solid fa-folder fa-fw"></i>
                                     CATEGORIES
@@ -385,7 +385,7 @@
                                     <ul class="sub-menu">
                                         
                                             <li>
-                                                <a href="/About">
+                                                <a href="/RicardoBlog/About">
                                                     ME
                                                 </a>
                                             </li>
@@ -409,7 +409,7 @@
                                             </li>
                                         
                                             <li>
-                                                <a href="/Links">
+                                                <a href="/RicardoBlog/Links">
                                                     FRIENDS
                                                 </a>
                                             </li>
@@ -487,7 +487,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/"
+                           href="/RicardoBlog/"
                         >
                             <span>
                                 HOME
@@ -507,7 +507,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/archives"
+                           href="/RicardoBlog/archives"
                         >
                             <span>
                                 ARCHIVES
@@ -527,7 +527,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/tags"
+                           href="/RicardoBlog/tags"
                         >
                             <span>
                                 TAGS
@@ -547,7 +547,7 @@
                     <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
                         
                         <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
-                           href="/categories"
+                           href="/RicardoBlog/categories"
                         >
                             <span>
                                 CATEGORIES
@@ -583,7 +583,7 @@
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                         <a class=" text-third-text-color text-xl"
-                                           href="/About">ME</a>
+                                           href="/RicardoBlog/About">ME</a>
                                     </div>
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
@@ -603,7 +603,7 @@
                                 
                                     <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
                                         <a class=" text-third-text-color text-xl"
-                                           href="/Links">FRIENDS</a>
+                                           href="/RicardoBlog/Links">FRIENDS</a>
                                     </div>
                                 
                             </div>
@@ -661,15 +661,15 @@
         </ul>
 
         <div class="statistics flex justify-around my-2.5">
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/tags">
         <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/categories">
         <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
-    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/archives">
         <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
@@ -704,7 +704,7 @@
         
             <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
                 <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
-                    <img src="/images/AcatarPic.svg">
+                    <img src="/RicardoBlog/images/AcatarPic.svg">
                 </div>
                 <div class="info flex flex-col justify-between">
                     <div class="author flex items-center">
@@ -739,7 +739,7 @@
                     
                         
                         <li>
-                            <a href="/categories/Coding/">Coding</a>&nbsp;
+                            <a href="/RicardoBlog/categories/Coding/">Coding</a>&nbsp;
                         </li>
                     
                     
@@ -753,11 +753,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/Handy-Trick/">Handy-Trick</a>&nbsp;
+                        <a href="/RicardoBlog/tags/Handy-Trick/">Handy-Trick</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/Git/">Git</a>&nbsp;
+                        | <a href="/RicardoBlog/tags/Git/">Git</a>&nbsp;
                     </li>
                 
             </ul>
@@ -806,7 +806,7 @@
 <p>理由是两个分支（<code>main</code> 和 <code>master</code>）之间没有可以比较的内容，因为它们具有完全不同的提交历史记录,甚至有可能不是同一起点（确实如此，本人本地repo是命令行git命令在本地初始化的并将工作区 (working directory) 内容暂存、提交到本地仓库，github托管的远程repo是线上由github初始化的且无任何 <code>git commit</code> 记录）。<br><img  
                      lazyload
                      src="/images/loading.svg"
-                     data-src="/images/git_merge_failure.png"
+                     data-src="/RicardoBlog/images/git_merge_failure.png"
                       alt="Git merge failure"
                 ></p>
 <p>快刀斩乱麻，展示出目前本地和远程的仓库，在本地建立一个和远程默认仓库分支一致的分支，将本地master分支</p>
@@ -851,7 +851,7 @@
             </li>
         
         <li>
-            <strong>Link:</strong> https://ricardopotter.github.io/2024/03/16/Git本地远程冲突解决/
+            <strong>Link:</strong> https://ricardopotter.github.io/RicardoBlog/2024/03/16/Git本地远程冲突解决/
         </li>
         <li>
             <strong>
@@ -873,11 +873,11 @@
             <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/Handy-Trick/">#Handy-Trick</a>&nbsp;
+                        <a href="/RicardoBlog/tags/Handy-Trick/">#Handy-Trick</a>&nbsp;
                     </li>
                 
                     <li class="tag-item mx-0.5">
-                        <a href="/tags/Git/">#Git</a>&nbsp;
+                        <a href="/RicardoBlog/tags/Git/">#Git</a>&nbsp;
                     </li>
                 
             </ul>
@@ -891,7 +891,7 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/2024/04/14/Data-Struct-Graph-%E5%9B%BE/"
+                        href="/RicardoBlog/2024/04/14/Data-Struct-Graph-%E5%9B%BE/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
@@ -907,7 +907,7 @@
                     <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="next"
                         rel="next"
-                        href="/2024/03/15/Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%9E%81%E7%AE%80%E9%85%8D%E7%BD%AE/"
+                        href="/RicardoBlog/2024/03/15/Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%9E%81%E7%AE%80%E9%85%8D%E7%BD%AE/"
                         >
                             <span class="title flex justify-center items-center">
                                 <span class="post-nav-title-item">Java开发环境极简配置</span>
@@ -1018,7 +1018,7 @@
               <span>2024</span>
               -
             
-            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Ricardo Pu</a>
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/RicardoBlog/">Ricardo Pu</a>
             
                 
                 <p class="post-count space-x-0.5">
@@ -1184,17 +1184,17 @@
 
 
     
-<script src="/js/libs/Swup.min.js"></script>
+<script src="/RicardoBlog/js/libs/Swup.min.js"></script>
 
-<script src="/js/libs/SwupSlideTheme.min.js"></script>
+<script src="/RicardoBlog/js/libs/SwupSlideTheme.min.js"></script>
 
-<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+<script src="/RicardoBlog/js/libs/SwupScriptsPlugin.min.js"></script>
 
-<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+<script src="/RicardoBlog/js/libs/SwupProgressPlugin.min.js"></script>
 
-<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+<script src="/RicardoBlog/js/libs/SwupScrollPlugin.min.js"></script>
 
-<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+<script src="/RicardoBlog/js/libs/SwupPreloadPlugin.min.js"></script>
 
 <script>
     const swup = new Swup({
@@ -1221,57 +1221,57 @@
 
 
 
-<script src="/js/tools/imageViewer.js" type="module"></script>
+<script src="/RicardoBlog/js/tools/imageViewer.js" type="module"></script>
 
-<script src="/js/utils.js" type="module"></script>
+<script src="/RicardoBlog/js/utils.js" type="module"></script>
 
-<script src="/js/main.js" type="module"></script>
+<script src="/RicardoBlog/js/main.js" type="module"></script>
 
-<script src="/js/layouts/navbarShrink.js" type="module"></script>
+<script src="/RicardoBlog/js/layouts/navbarShrink.js" type="module"></script>
 
-<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+<script src="/RicardoBlog/js/tools/scrollTopBottom.js" type="module"></script>
 
-<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+<script src="/RicardoBlog/js/tools/lightDarkSwitch.js" type="module"></script>
 
-<script src="/js/layouts/categoryList.js" type="module"></script>
-
-
-
-    
-<script src="/js/tools/localSearch.js" type="module"></script>
-
+<script src="/RicardoBlog/js/layouts/categoryList.js" type="module"></script>
 
 
 
     
-<script src="/js/tools/codeBlock.js" type="module"></script>
+<script src="/RicardoBlog/js/tools/localSearch.js" type="module"></script>
 
 
 
 
     
-<script src="/js/layouts/lazyload.js" type="module"></script>
+<script src="/RicardoBlog/js/tools/codeBlock.js" type="module"></script>
 
 
 
 
     
-<script src="/js/tools/runtime.js"></script>
+<script src="/RicardoBlog/js/layouts/lazyload.js" type="module"></script>
+
+
+
 
     
-<script src="/js/libs/odometer.min.js"></script>
+<script src="/RicardoBlog/js/tools/runtime.js"></script>
 
     
-<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+<script src="/RicardoBlog/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/RicardoBlog/assets/odometer-theme-minimal.css">
 
 
 
 
   
-<script src="/js/libs/Typed.min.js"></script>
+<script src="/RicardoBlog/js/libs/Typed.min.js"></script>
 
   
-<script src="/js/plugins/typed.js" type="module"></script>
+<script src="/RicardoBlog/js/plugins/typed.js" type="module"></script>
 
 
 
@@ -1284,11 +1284,11 @@
 <div class="post-scripts" data-swup-reload-script>
     
         
-<script src="/js/tools/tocToggle.js" type="module"></script>
+<script src="/RicardoBlog/js/tools/tocToggle.js" type="module"></script>
 
-<script src="/js/layouts/toc.js" type="module"></script>
+<script src="/RicardoBlog/js/layouts/toc.js" type="module"></script>
 
-<script src="/js/plugins/tabs.js" type="module"></script>
+<script src="/RicardoBlog/js/plugins/tabs.js" type="module"></script>
 
     
 </div>
