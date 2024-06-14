@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Ricardo Pu">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://ricardopotter.github.io/2024/03/15/vim调优/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="1. vim调优1.1  缘起动因【太长可以不看】简要概括，Windows版Vim&#x2F;gVim由于默认配置中的backup特性，产生大量备份文件造成git仓库管理异常脏乱。    点击查看详情  通过简简单单的修改.gitignore文件来忽略大量的.un~和*.*~文件，仅仅只能维持remote仓库的整洁，并且由于备份文件扩展名是在原扩展名基础上加”~”，因此防不甚防，.gitignor">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vim调优（个人向）">
+<meta property="og:url" content="http://ricardopotter.github.io/2024/03/15/Vim%E8%B0%83%E4%BC%98/index.html">
+<meta property="og:site_name" content="Ricardo Pu&#39;s Blog">
+<meta property="og:description" content="1. vim调优1.1  缘起动因【太长可以不看】简要概括，Windows版Vim&#x2F;gVim由于默认配置中的backup特性，产生大量备份文件造成git仓库管理异常脏乱。    点击查看详情  通过简简单单的修改.gitignore文件来忽略大量的.un~和*.*~文件，仅仅只能维持remote仓库的整洁，并且由于备份文件扩展名是在原扩展名基础上加”~”，因此防不甚防，.gitignor">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://ricardopotter.github.io/images/vim_load_vimrc.png">
+<meta property="og:image" content="http://ricardopotter.github.io/images/vim_feature_clipboard_support.png">
+<meta property="article:published_time" content="2024-03-15T00:15:03.000Z">
+<meta property="article:modified_time" content="2024-06-04T00:47:19.125Z">
+<meta property="article:author" content="Ricardo Pu">
+<meta property="article:tag" content="Handy-Trick">
+<meta property="article:tag" content="Vim">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://ricardopotter.github.io/images/vim_load_vimrc.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/Ricardo%E8%92%B2Logo.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/Ricardo%E8%92%B2Logo.svg">
+    <meta name="theme-color" content="#008080">
+    <link rel="shortcut icon" href="/images/Ricardo%E8%92%B2Logo.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            Vim调优（个人向） -
+        
+        Ricardo&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Ricardo&#39;s Blog
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ricardopotter.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":5,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#008080","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Ricardo's Blog","subtitle":{"text":["躲进小楼成一统","汉堡中的生菜","乌鸦的世界天鹅也有罪"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/RicardoMiles","instagram":"https://www.instagram.com/ricardomilesgarcia/","zhihu":null,"twitter":null,"email":"pujinjian@hotmail.com","steam":"https://steamcommunity.com/profiles/76561198400981711/","weibo":"https://weibo.com/u/3226308805"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-solid fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/About","Github":"https://github.com/RicardoMiles","Github2":"https://github.com/RicardoPotter","Blog":"https://ricardopotter.github.io/","Friends":"/Links"}},"Links":{"icon":"fa-regular fa-link","submenus":{"子昂的博客":"https://supgoon.com/","Google":"https://google.com","ChatGPT":"https://chatgpt.com/"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"躲进小楼成一统","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Links":{"path":"/links","icon":"fa-regular fa-link"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":5}},"footerStart":"2024/02/19 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/Ricardo%E8%92%B2Logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                Ricardo&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/About">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/RicardoMiles">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/RicardoPotter">
+                                                    GITHUB2
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="https://ricardopotter.github.io/">
+                                                    BLOG
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/Links">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    LINKS
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://supgoon.com/">
+                                                    子昂的博客
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://google.com">
+                                                    GOOGLE
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://chatgpt.com/">
+                                                    CHATGPT
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/About">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/RicardoMiles">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/RicardoPotter">GITHUB2</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="https://ricardopotter.github.io/">BLOG</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/Links">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                LINKS
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://supgoon.com/">子昂的博客</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://google.com">GOOGLE</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://chatgpt.com/">CHATGPT</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">Vim调优（个人向）</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/AcatarPic.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Ricardo Pu</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-03-15 00:15:03</span>
+        <span class="mobile">2024-03-15 00:15:03</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-06-04 01:47:19</span>
+            <span class="mobile">2024-06-04 01:47:19</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Coding/">Coding</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Handy-Trick/">Handy-Trick</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Vim/">Vim</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <h3 id="1-vim调优"><a href="#1-vim调优" class="headerlink" title="1. vim调优"></a><em><strong>1. vim调优</strong></em></h3><h4 id="1-1-缘起动因"><a href="#1-1-缘起动因" class="headerlink" title="1.1  缘起动因"></a><em><strong>1.1  缘起动因</strong></em></h4><p>【太长可以不看】简要概括，<code>Windows</code>版Vim&#x2F;gVim由于默认配置中的<code>backup</code>特性，产生大量备份文件造成git仓库管理异常脏乱。</p>
+<details>
+  <summary>点击查看详情</summary>
+
+<p>通过简简单单的修改.gitignore文件来忽略大量的<code>.un~</code>和<code>*.*~</code>文件，仅仅只能维持remote仓库的整洁，并且由于备份文件扩展名是在原扩展名基础上加”~”，因此防不甚防，<code>.gitignore</code>很难全部覆盖。</p>
+<p>并且本地的文件结构也显得异常脏乱，鉴于Vim本身自带的编辑保护机制已经很健全，并且使用git管理，有多个可回滚目标，因此选择关闭<code>Vim</code>的<code>backup</code>特性。自此开始了一场挠头不断的折腾之旅。</p>
+</details>
+
+<h4 id="1-2-关闭Vim-自动备份功能"><a href="#1-2-关闭Vim-自动备份功能" class="headerlink" title="1.2  关闭Vim 自动备份功能"></a><em><strong>1.2  关闭Vim 自动备份功能</strong></em></h4><p>需要调整<code>.vimrc</code>文件，在<code>Windows</code>上显示为<code>_vimrc</code>文件或者<code>.vimrc</code>文件，两者有其一即可,会冲突。以笔者Win11<code>22H2</code>的两部机型操作来说，不存在差异，随便改动一个就可以，但是**<code>.vimrc</code>位置**很有讲究。<code>Vim</code>本身并没有在PATH生成这个文件，默认的vimrc和用户级别vimrc并不冲突，用户vimrc堆叠覆盖在默认vimrc上，该文件就是用作vim的配置的，可以理解成很多软件的.config文件。</p>
+<ul>
+<li>确定<code>.vimrc/_vimrc</code>位置<ul>
+<li><pre><code>直接进Vim，在Vim中执行命令`echo $HOME`来显示Vim配置文件所在位置
+</code></pre>
+</li>
+<li>手动搜索：GUI界面的文件管理器中打开 C:\Users\你的本机用户名 路径，该路径下一般存着本机的<code>.vimrc/_vimrc</code>;或者在该路径打开命令台输入指令<code>ls | grep &quot;vimrc&quot;</code>模糊搜索<code>.vimrc/_vimrc</code>二者之一。</li>
+<li>插播下，Windows的power shell命令台不支持grep命令，内置指令又很复杂，可通过Scoop或者Choco等包管理软件，管理员模式的powershell下几秒钟装一个grep包一劳永逸<code>choco install grep</code>。</li>
+<li>有就直接改，没有就创一个文件，命令都是一样的<code>vim _vimrc</code>,以下内容添加进去就达成了关闭自动同步特性。<div class="highlight-container" data-rel="Vim"><figure class="iseeu highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nobackup</span><br><span class="line"><span class="keyword">set</span> nowritebackup</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+</li>
+<li>Vim下加载配置     <ul>
+<li><pre><code>直接命令行一行进入Vim
+</code></pre>
+  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">    vim</span><br><span class="line">    ```  </span><br><span class="line">-   vim主界面直接输入</span><br><span class="line">    ```bash</span><br><span class="line">    :<span class="built_in">source</span> <span class="variable">$MYVIMRC</span></span><br></pre></td></tr></table></figure></div>
+  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vim_load_vimrc.png"
+                      alt="vimLoadVimrc"
+                ></li>
+</ul>
+</li>
+</ul>
+<p>退出后使用<code>Vim</code>创建或者编辑任意文件验证，解决。</p>
+<h4 id="1-3-解决Vim-退格删除键无法删除的问题"><a href="#1-3-解决Vim-退格删除键无法删除的问题" class="headerlink" title="1.3  解决Vim 退格删除键无法删除的问题"></a><em><strong>1.3  解决Vim 退格删除键无法删除的问题</strong></em></h4><p>随着自动备份问题的解决，验证<code>Vim</code>日常使用的时候，一个更严重的问题产生了：使用<code>Vim</code>编辑文件在i模式编辑模式下无法使用退格键<code>Backspace</code>删除非本次编辑生成的内容，并且无法删除换行符。<code>Delete</code>也仅仅只能删除一个字符。</p>
+<p>根据检索排查，发现新的<code>_vimrc/.vimrc</code>文件覆盖了系统自带的默认属性，使得一些<code>Vim</code>默认的其他特性消失了，比如对于退格<code>backspace</code> 的定义(而这恰恰就是退格失效的原因)，比如默认语法高亮都消失了。</p>
+<ul>
+<li>因此再次编辑<code>_vimrc</code>,过程不再赘述，添加这行代码。  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> backspace=indent,eol,start</span><br></pre></td></tr></table></figure></div></li>
+<li>目前<code>_vimrc</code>文件内容总体如下  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> nobackup</span><br><span class="line"><span class="built_in">set</span> nowritebackup</span><br><span class="line"><span class="built_in">set</span> backspace=indent,eol,start</span><br></pre></td></tr></table></figure></div></li>
+</ul>
+<h4 id="1-4-解决Vim-无法和系统剪切板完全交互-单向粘贴无法复制"><a href="#1-4-解决Vim-无法和系统剪切板完全交互-单向粘贴无法复制" class="headerlink" title="1.4  解决Vim 无法和系统剪切板完全交互 单向粘贴无法复制"></a><em><strong>1.4  解决Vim 无法和系统剪切板完全交互 单向粘贴无法复制</strong></em></h4><p>既然走到这步，索性将win下<code>Vim</code>的另外一个痛点解决。即跑在Windows Terminal或者Powershell之下的命令行<code>Vim</code>都只能由外部向<code>Vim</code>内粘贴内容，但是<code>Vim</code>内代码却无法复制出去。也装过各种插件，其实没用✌。因此在摸爬滚打中将解决方案和摸索思路分享下。也许在我摸索的头几步大部分人类似的问题已经解决了。</p>
+<ul>
+<li><p>首先确保系统本身和<code>Vim</code>版本都支持剪贴板Clipboard功能</p>
+<ul>
+<li>就我个人的情况而言，系统<code>Windows™</code> 11 <code>22H2</code>，自<code>Windows™</code>10大版本起甚至都支持剪切板历史了</li>
+<li>就我安装的Vim而言，win发行版的<code>Vim</code>不论是下载安装包手动安装，还是使用Scoop或者Chocolatey这类包管理软件进行命令行安装，都是带有<code>gVim</code>可视化版本的整个套件，必然支持剪切板，并且已经能读取命令台Power shell外部的系统剪切板，就是无法调用本地。</li>
+<li><code>Linux</code>用户有可能默认安装的老版本不支持Clipboard功能。最快的解决版本是用<code>apt</code>安装一个<code>gVim</code><br>  -检查<code>Vim</code>支持该特性与否  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim --version | grep <span class="string">&quot;clipboard&quot;</span></span><br></pre></td></tr></table></figure></div>
+  <img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/images/vim_feature_clipboard_support.png"
+                      alt="VimFeatureClipboardSupport"
+                ><ul>
+<li>如图所示输出结果为<code>+clipboard</code>,即为支持；如显示为<code>-clipboard</code>则表示不支持</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>调整<code>_vimrc/.vimrc</code>文件来确保<code>Vim</code>调用系统默认剪切板</p>
+<ul>
+<li>将下列命令加入<code>_vimrc/.vimrc</code>  <div class="highlight-container" data-rel="Bash"><figure class="iseeu highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">set</span> clipboard=unnamedplus</span><br></pre></td></tr></table></figure></div></li>
+<li>如果无效的话，建议删除。两种检验有效与否的方法。<ul>
+<li>使用<code>Vim</code>自带的复制命令，显式使用<code>&quot;*</code>寄存器复制,到外部的应用软件进行粘贴。笔者失败了。</li>
+<li>使用<code>Ctrl</code>+<code>C</code>的系统级快捷键复制命令太内Vim正在编辑的文本。笔者还是失败了</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>100%有效的方法：通过<code>Vim</code>配置文件<code>_vimrc/.vimrc</code>直接自定义命令映射，用<code>Windows</code>自带的Power shell命令行工具指令clip.exe来实现访问系统剪切板。</p>
+<ul>
+<li><p>将下列命令加入<code>_vimrc/.vimrc</code>以补足<code>Vim</code>向外复制的功能</p>
+  <div class="highlight-container" data-rel="Vim"><figure class="iseeu highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&quot; 复制到系统剪贴板</span></span><br><span class="line"><span class="keyword">vnoremap</span> <span class="symbol">&lt;C-c&gt;</span> :<span class="keyword">w</span> !clip<span class="symbol">&lt;CR&gt;</span><span class="symbol">&lt;CR&gt;</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>以备还有其他苦主，连<code>Windows</code>向<code>Vim</code>内粘贴也遇上问题，这里提供相对应的另一条命令</p>
+  <div class="highlight-container" data-rel="Vim"><figure class="iseeu highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&quot; 从系统剪贴板粘贴</span></span><br><span class="line"><span class="keyword">nnoremap</span> <span class="symbol">&lt;C-v&gt;</span> :r !powershell Get-Clipboard<span class="symbol">&lt;CR&gt;</span><span class="symbol">&lt;CR&gt;</span></span><br></pre></td></tr></table></figure></div></li>
+<li><p>我本人至此<code>_vimrc</code>文件全貌，可见仓库<code>/src</code>文件夹</p>
+<p>  <a href="downloads/your_file_name">点击下载 “_vimrc”</a></p>
+  <div class="highlight-container" data-rel="Vim"><figure class="iseeu highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nobackup</span><br><span class="line"><span class="keyword">set</span> nowritebackup</span><br><span class="line"><span class="keyword">set</span> backspace=<span class="built_in">indent</span>,eol,start</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">number</span></span><br><span class="line"><span class="keyword">vnoremap</span> <span class="symbol">&lt;C-c&gt;</span> :<span class="keyword">w</span> !clip<span class="symbol">&lt;CR&gt;</span><span class="symbol">&lt;CR&gt;</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+</li>
+</ul>
+<h4 id="1-5-微调Vim参数"><a href="#1-5-微调Vim参数" class="headerlink" title="1.5  微调Vim参数"></a><em><strong>1.5  微调Vim参数</strong></em></h4><ul>
+<li><p>我只是一个正式学习CS不满一年的绿手，非<code>Vim</code>重度使用者。但是在快速修改内容的同时，也有必要稍稍提升下<code>Vim</code>的基础使用体验，我的最终版本<code>_vimrc</code>添加了代码高亮、行数显示和必要时的鼠标启用特性。</p>
+<ul>
+<li>最终自用版本<code>_vimrc</code></li>
+<li>代码高亮、行数显示、鼠标特性均已注释  <div class="highlight-container" data-rel="Vim"><figure class="iseeu highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> nobackup</span><br><span class="line"><span class="keyword">set</span> nowritebackup</span><br><span class="line"><span class="keyword">set</span> backspace=<span class="built_in">indent</span>,eol,start</span><br><span class="line"><span class="keyword">set</span> <span class="keyword">number</span> <span class="comment">&quot;行数显示</span></span><br><span class="line"><span class="keyword">syntax</span> enable <span class="comment">&quot;代码高亮</span></span><br><span class="line"><span class="keyword">set</span> mouse=<span class="keyword">a</span> <span class="comment">&quot;鼠标特性支持</span></span><br><span class="line"><span class="keyword">vnoremap</span> <span class="symbol">&lt;C-c&gt;</span> :<span class="keyword">w</span> !clip<span class="symbol">&lt;CR&gt;</span><span class="symbol">&lt;CR&gt;</span></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+</li>
+<li><p>步入现代了，还有人再用<code>Vim</code>✌。原因有很多，初见时只觉得迂腐，稍微熟悉一点，才渐渐意识到Geek们口中无上限的<code>Vim</code>到底是多么重剑无锋，天下武功唯快不破的基调下这把倚天剑轻盈灵巧。在初学Coding的周芷“弱”们手中，这把武器谈不上最相称，副作用可能还不小；但是王重阳手中，倚天剑称得上举世无双。有极爱折腾的圣手，甚至出过<code>Vim</code>爆改IDE的教程。仅作一点感慨。</p>
+</li>
+</ul>
+
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> Vim调优（个人向）</li>
+        <li><strong>Author:</strong> Ricardo Pu</li>
+        <li><strong>Created at
+                :</strong> 2024-03-15 00:15:03</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-06-04 01:47:19
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://ricardopotter.github.io/2024/03/15/Vim调优/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Handy-Trick/">#Handy-Trick</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Vim/">#Vim</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/03/15/Java%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83%E6%9E%81%E7%AE%80%E9%85%8D%E7%BD%AE/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Java开发环境极简配置</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/02/19/MacBook%E7%89%88Vagrant%E9%81%87%E5%88%B0debian%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">MacBook版Vagrant遇到debian兼容问题</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'Ov23liQ2aDqTK9mhvXKL',
+                    clientSecret: '7be4bb5fe7232f32a7a71ca2bfb7dfedeeb60c68',
+                    repo: 'RicardoPotter.github.io',
+                    owner: 'RicardoPotter',
+                    admin: ['RicardoPotter'],
+                    id: __gitalk__pathname,
+                    language: 'en',
+                    proxy: 'https://github.com/login/oauth/access_token'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">Vim调优（个人向）</div>
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-vim%E8%B0%83%E4%BC%98"><span class="nav-text">1. vim调优</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1-%E7%BC%98%E8%B5%B7%E5%8A%A8%E5%9B%A0"><span class="nav-text">1.1  缘起动因</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2-%E5%85%B3%E9%97%ADVim-%E8%87%AA%E5%8A%A8%E5%A4%87%E4%BB%BD%E5%8A%9F%E8%83%BD"><span class="nav-text">1.2  关闭Vim 自动备份功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3-%E8%A7%A3%E5%86%B3Vim-%E9%80%80%E6%A0%BC%E5%88%A0%E9%99%A4%E9%94%AE%E6%97%A0%E6%B3%95%E5%88%A0%E9%99%A4%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-text">1.3  解决Vim 退格删除键无法删除的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-4-%E8%A7%A3%E5%86%B3Vim-%E6%97%A0%E6%B3%95%E5%92%8C%E7%B3%BB%E7%BB%9F%E5%89%AA%E5%88%87%E6%9D%BF%E5%AE%8C%E5%85%A8%E4%BA%A4%E4%BA%92-%E5%8D%95%E5%90%91%E7%B2%98%E8%B4%B4%E6%97%A0%E6%B3%95%E5%A4%8D%E5%88%B6"><span class="nav-text">1.4  解决Vim 无法和系统剪切板完全交互 单向粘贴无法复制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1-5-%E5%BE%AE%E8%B0%83Vim%E5%8F%82%E6%95%B0"><span class="nav-text">1.5  微调Vim参数</span></a></li></ol></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Ricardo Pu</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        18 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>

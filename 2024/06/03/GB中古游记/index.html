@@ -1,0 +1,1785 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="Ricardo Pu">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://ricardopotter.github.io/2024/06/03/gb中古游记/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="June Gloucester It is a cathedral city. It is the county town of Gloucestershire. It lies on the River Severn. Gloucester was founded by the Romans and became an important city and colony in AD 97, u">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UK中古游记">
+<meta property="og:url" content="http://ricardopotter.github.io/2024/06/03/GB%E4%B8%AD%E5%8F%A4%E6%B8%B8%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Ricardo Pu&#39;s Blog">
+<meta property="og:description" content="June Gloucester It is a cathedral city. It is the county town of Gloucestershire. It lies on the River Severn. Gloucester was founded by the Romans and became an important city and colony in AD 97, u">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-06-03T19:23:00.000Z">
+<meta property="article:modified_time" content="2024-06-08T17:30:29.147Z">
+<meta property="article:author" content="Ricardo Pu">
+<meta property="article:tag" content="Travelogue">
+<meta property="article:tag" content="Journal">
+<meta name="twitter:card" content="summary">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/Ricardo%E8%92%B2Logo.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/Ricardo%E8%92%B2Logo.svg">
+    <meta name="theme-color" content="#008080">
+    <link rel="shortcut icon" href="/images/Ricardo%E8%92%B2Logo.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            UK中古游记 -
+        
+        Ricardo&#39;s Blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        Ricardo&#39;s Blog
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"ricardopotter.github.io","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":5,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#008080","secondary":null,"default_mode":"dark"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Ricardo's Blog","subtitle":{"text":["躲进小楼成一统","汉堡中的生菜","乌鸦的世界天鹅也有罪"],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":true,"style":"default","links":{"github":"https://github.com/RicardoMiles","instagram":"https://www.instagram.com/ricardomilesgarcia/","zhihu":null,"twitter":null,"email":"pujinjian@hotmail.com","steam":"https://steamcommunity.com/profiles/76561198400981711/","weibo":"https://weibo.com/u/3226308805"},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.2","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-solid fa-folder"},"About":{"icon":"fa-regular fa-user","submenus":{"Me":"/About","Github":"https://github.com/RicardoMiles","Github2":"https://github.com/RicardoPotter","Blog":"https://ricardopotter.github.io/","Friends":"/Links"}},"Links":{"icon":"fa-regular fa-link","submenus":{"子昂的博客":"https://supgoon.com/","Google":"https://google.com","ChatGPT":"https://chatgpt.com/"}}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"info","announcement":"躲进小楼成一统","show_on_mobile":true,"links":{"Archives":{"path":"/archives","icon":"fa-regular fa-archive"},"Tags":{"path":"/tags","icon":"fa-regular fa-tags"},"Categories":{"path":"/categories","icon":"fa-regular fa-folder"},"Links":{"path":"/links","icon":"fa-regular fa-link"}}},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":5}},"footerStart":"2024/02/19 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/Ricardo%E8%92%B2Logo.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                
+                Ricardo&#39;s Blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/archives"
+                                        >
+                                    <i class="fa-regular fa-archive fa-fw"></i>
+                                    ARCHIVES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/tags"
+                                        >
+                                    <i class="fa-regular fa-tags fa-fw"></i>
+                                    TAGS
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/categories"
+                                        >
+                                    <i class="fa-solid fa-folder fa-fw"></i>
+                                    CATEGORIES
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-user fa-fw"></i>
+                                    ABOUT
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a href="/About">
+                                                    ME
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/RicardoMiles">
+                                                    GITHUB
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://github.com/RicardoPotter">
+                                                    GITHUB2
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="https://ricardopotter.github.io/">
+                                                    BLOG
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a href="/Links">
+                                                    FRIENDS
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="has-dropdown"
+                                   href="#"
+                                        onClick=&#34;return false;&#34;>
+                                    <i class="fa-regular fa-link fa-fw"></i>
+                                    LINKS
+                                    <i class="fa-solid fa-chevron-down fa-fw"></i>
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                                    <ul class="sub-menu">
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://supgoon.com/">
+                                                    子昂的博客
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://google.com">
+                                                    GOOGLE
+                                                </a>
+                                            </li>
+                                        
+                                            <li>
+                                                <a target="_blank" rel="noopener" href="https://chatgpt.com/">
+                                                    CHATGPT
+                                                </a>
+                                            </li>
+                                        
+                                    </ul>
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/archives"
+                        >
+                            <span>
+                                ARCHIVES
+                            </span>
+                            
+                                <i class="fa-regular fa-archive fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/tags"
+                        >
+                            <span>
+                                TAGS
+                            </span>
+                            
+                                <i class="fa-regular fa-tags fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/categories"
+                        >
+                            <span>
+                                CATEGORIES
+                            </span>
+                            
+                                <i class="fa-solid fa-folder fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-About"
+                        >
+                            <span>
+                                ABOUT
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-About">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/About">ME</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/RicardoMiles">GITHUB</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://github.com/RicardoPotter">GITHUB2</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="https://ricardopotter.github.io/">BLOG</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           href="/Links">FRIENDS</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item-sub text-base my-1.5 flex flex-col w-full">
+                        
+                        <div class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary cursor-pointer text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                             navbar-data-toggle="submenu-Links"
+                        >
+                            <span>
+                                LINKS
+                            </span>
+                            
+                                <i class="fa-solid fa-chevron-right fa-sm fa-fw transition-all"></i>
+                            
+                        </div>
+                        
+
+                        
+                            <div class="flex-col items-start px-2 py-2 hidden" data-target="submenu-Links">
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://supgoon.com/">子昂的博客</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://google.com">GOOGLE</a>
+                                    </div>
+                                
+                                    <div class="drawer-navbar-item text-base flex flex-col justify-center items-start hover:underline active:underline hover:underline-offset-1 rounded-3xl">
+                                        <a class=" text-third-text-color text-xl"
+                                           target="_blank" rel="noopener" href="https://chatgpt.com/">CHATGPT</a>
+                                    </div>
+                                
+                            </div>
+                        
+                    </li>
+            
+
+            
+            
+                
+                    
+                    
+                    
+                    
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">4</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="post-page-container flex relative justify-between box-border w-full h-full">
+    <div class="article-content-container">
+
+        <div class="article-title relative w-full">
+            
+                <div class="w-full flex items-center pt-6 justify-start">
+                    <h1 class="article-title-regular text-second-text-color text-4xl md:text-6xl font-bold px-2 sm:px-6 md:px-8 py-3">UK中古游记</h1>
+                </div>
+            
+            </div>
+
+        
+            <div class="article-header flex flex-row gap-2 items-center px-2 sm:px-6 md:px-8">
+                <div class="avatar w-[46px] h-[46px] flex-shrink-0 rounded-medium border border-border-color p-[1px]">
+                    <img src="/images/AcatarPic.svg">
+                </div>
+                <div class="info flex flex-col justify-between">
+                    <div class="author flex items-center">
+                        <span class="name text-default-text-color text-lg font-semibold">Ricardo Pu</span>
+                        
+                            <span class="author-label ml-1.5 text-xs px-2 py-0.5 rounded-small text-third-text-color border border-shadow-color-1">Lv3</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2024-06-03 20:23</span>
+        <span class="mobile">2024-06-03 20:23</span>
+        <span class="hover-info">Created</span>
+    </span>
+    
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2024-06-08 18:30:29</span>
+            <span class="mobile">2024-06-08 18:30:29</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa-regular fa-folders"></i>&nbsp;
+            <ul>
+                
+                
+                    
+                        
+                        <li>
+                            <a href="/categories/Journal/">Journal</a>&nbsp;
+                        </li>
+                    
+                    
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa-regular fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Travelogue/">Travelogue</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Journal/">Journal</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa-regular fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        
+
+
+        <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
+            <ul>
+<li><a href="#june">June</a><ul>
+<li><a href="#gloucester">Gloucester</a><ul>
+<li><a href="#it-is-a-cathedral-city"><strong>It is a cathedral city.</strong></a></li>
+<li><a href="#it-is-the-county-town-of-gloucestershire"><strong>It is the county town of Gloucestershire.</strong></a></li>
+<li><a href="#it-lies-on-the-river-severn"><strong>It lies on the River Severn.</strong></a></li>
+<li><a href="#gloucester-was-founded-by-the-romans-and-became-an-important-city-and-colony-in-ad-97-under-emperor-nerva-as-colonia-glevum-nervensisit-was-granted-its-first-charter-in-1155-by-henry-ii">Gloucester was <strong>founded by the Romans</strong> and became an important city and colony in AD 97, under <strong>Emperor Nerva</strong> as Colonia Glevum Nervensis.It was granted its first <strong>charter</strong> in 1155 by Henry II.</a></li>
+<li><a href="#major-attraction-of-the-city-is-gloucester-cathedral">Major attraction of the city is Gloucester Cathedral</a></li>
+<li><a href="#the-former-county-jail">The former county jail</a></li>
+<li><a href="#trip-of-cex">Trip of Cex</a></li>
+<li><a href="#england-era">England Era</a></li>
+</ul>
+</li>
+<li><a href="#bristol">Bristol</a><ul>
+<li><a href="#churches-in-bristol">Churches in Bristol</a></li>
+<li><a href="#bristol-%E7%8B%AC%E7%AB%8B%E6%95%99%E4%BC%9A-entity">Bristol 独立教会 Entity</a></li>
+<li><a href="#chapel-court-church-cathedral">Chapel Court Church Cathedral</a></li>
+<li><a href="#little-brothers-of-nazareth">Little Brothers of Nazareth</a></li>
+<li><a href="#bristol--incomplete-city">Bristol- Incomplete City</a></li>
+<li><a href="#augustinian-abbey">Augustinian Abbey</a></li>
+<li><a href="#prayer-and-mass">Prayer and Mass</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#july">July</a></li>
+</ul>
+<h2 id="June"><a href="#June" class="headerlink" title="June"></a>June</h2><h3 id="Gloucester"><a href="#Gloucester" class="headerlink" title="Gloucester"></a>Gloucester</h3><h4 id="It-is-a-cathedral-city"><a href="#It-is-a-cathedral-city" class="headerlink" title="It is a cathedral city."></a><strong>It is a cathedral city.</strong></h4><ul>
+<li><strong>cathedral city</strong> is a place <strong>designated</strong> as a city which has a cathedral</li>
+<li><strong>designate</strong> : to say officially that a place or thing has a particular character or purpose</li>
+<li><strong>cathedral</strong>: A cathedral is a church that contains the <strong>cathedra (Latin for ‘seat’)</strong> of a <strong>bishop</strong>, thus serving as the central church of a <strong>diocese</strong>, <strong>conference</strong>, or <strong>episcopate</strong><ul>
+<li><strong>bishop</strong>: &#x2F;ˈbɪʃ.əp&#x2F; a <strong>priest</strong> of high rank who is in charge of the priests of lower rank in a particular area<ul>
+<li><strong>priest</strong>: a person, usually a man, who has been trained to perform religious duties in the Christian Church, <strong>especially the Roman Catholic Church</strong>, or a person with particular duties in some other religions;<ul>
+<li>There is still a ban on women priests in the Catholic Church;</li>
+<li>the Roman Catholic Church: the part of Christian religion that is ruled by the Pope in Rome;</li>
+<li>Pope in Rome:  罗马教皇，the leader of the Roman Catholic Church;</li>
+<li>神父 &#x3D;&#x3D; priest;</li>
+</ul>
+</li>
+<li>高阶神父，管更下级区域神父的主教；</li>
+</ul>
+</li>
+<li><strong>diocese</strong>:  a subdivided area which is set a bishop to act as highest leader; diocese is made up with several <strong>parishes</strong>; diocese is a district under the jurisdiction of a bishop; 教区.<ul>
+<li>diocese &#x3D;&#x3D; bishopric;</li>
+<li>several dioceses (at least 4) could be a Province (Latin: Provincia ecclesiastica; chinese：教省)；</li>
+<li>one of the dioceses in Province would be Metropolia. 主教区</li>
+<li><strong>parish</strong>: parish is a territorial entity in Christian denominations; 堂区，以一座教堂为中心;有时候和manor庄园级别同等</li>
+</ul>
+</li>
+<li><strong>和另外两者并列的conference</strong>是什么意思: 这里的 “conference” 指的是年度大会，它是<strong>卫理公会</strong>中的一个重要组织机构，负责决策、制定政策以及选举代表参加更高层次的会议。Here, “conference” refers to an annual meeting, which is an important organizational structure within <strong>Methodist denominations</strong>. It is responsible for decision-making, policy formulation, and electing representatives to higher-level meetings.</li>
+<li><strong>episcopate</strong>: the office, status, or term of office of a bishop</li>
+<li><strong>圣公会和天主教的区别</strong>：卫理公会则是一种新教派别，与圣公会和罗马天主教有所不同。它由约翰·卫斯理和查理斯·卫斯理兄弟创立，强调个人信仰和敬虔生活。卫理公会则是一种新教派别，与圣公会和罗马天主教有所不同。它由约翰·卫斯理和查理斯·卫斯理兄弟创立，强调个人信仰和敬虔生活。</li>
+<li><strong>Abbey和cathedral的区别</strong>：Westminster Abbey（威斯敏斯特修道院）是一座天主教的历史性教堂，但自16世纪英国宗教改革以来，成为了英国国教的一部分。哥特式建筑风格。Westminster Cathedral（威斯敏斯特大教堂）是英国天主教教区的总部，是天主教重要的礼拜和宗教活动场所，与Westminster abbey不同，大教堂并不具有英国国家场所的地位是天主教教堂，不具备与英国国家相关的历史和地位。尽管它是伦敦最大的天主教教堂之一，但其历史与英国国家的历史联系较少，因此不被视为英国国家场所。</li>
+<li><strong>什么叫座堂</strong>：座堂（Cathedral）是一个教区的主教座堂，是主教的所在地。其名称源自拉丁词“cathedra”，意为“主教的座位”。</li>
+</ul>
+</li>
+</ul>
+<h4 id="It-is-the-county-town-of-Gloucestershire"><a href="#It-is-the-county-town-of-Gloucestershire" class="headerlink" title="It is the county town of Gloucestershire."></a><strong>It is the county town of Gloucestershire.</strong></h4><ul>
+<li>郡治 ≈ 县城</li>
+</ul>
+<h4 id="It-lies-on-the-River-Severn"><a href="#It-lies-on-the-River-Severn" class="headerlink" title="It lies on the River Severn."></a><strong>It lies on the River Severn.</strong></h4><ul>
+<li>It is the longest river in Great Britain.</li>
+<li>The name Severn is thought to derive from a British word sabrina, possibly from an older form samarosina, meaning “land of summertime <strong>fallow</strong>“.</li>
+<li><strong>Fallow</strong>: Fallow land is not planted with crops, in order to improve the quality of the soil.</li>
+<li>Sabrina is also a goddess name of Celtic mythology</li>
+</ul>
+<h4 id="Gloucester-was-founded-by-the-Romans-and-became-an-important-city-and-colony-in-AD-97-under-Emperor-Nerva-as-Colonia-Glevum-Nervensis-It-was-granted-its-first-charter-in-1155-by-Henry-II"><a href="#Gloucester-was-founded-by-the-Romans-and-became-an-important-city-and-colony-in-AD-97-under-Emperor-Nerva-as-Colonia-Glevum-Nervensis-It-was-granted-its-first-charter-in-1155-by-Henry-II" class="headerlink" title="Gloucester was founded by the Romans and became an important city and colony in AD 97, under Emperor Nerva as Colonia Glevum Nervensis.It was granted its first charter in 1155 by Henry II."></a>Gloucester was <strong>founded by the Romans</strong> and became an important city and colony in AD 97, under <strong>Emperor Nerva</strong> as Colonia Glevum Nervensis.It was granted its first <strong>charter</strong> in 1155 by Henry II.</h4><ul>
+<li><em><strong>Emperor Nerva</strong></em>: the first emperor of Nerva Antonine dynasty; the last emperor born in Italian Peninsula</li>
+<li><strong>charter</strong>: A formal statement of the rights of a country’s people, or of an organization or a particular social group, that is agreed by or demanded from a ruler or government</li>
+</ul>
+<h4 id="Major-attraction-of-the-city-is-Gloucester-Cathedral"><a href="#Major-attraction-of-the-city-is-Gloucester-Cathedral" class="headerlink" title="Major attraction of the city is Gloucester Cathedral"></a>Major attraction of the city is Gloucester Cathedral</h4><ul>
+<li>Burial place of King Edward II and Walter de Lacy</li>
+<li>It features in scenes from Harry Potter films.</li>
+</ul>
+<h4 id="The-former-county-jail"><a href="#The-former-county-jail" class="headerlink" title="The former county jail"></a>The former county jail</h4><ul>
+<li>On Saxon and Norman castle</li>
+<li>HM Prison Gloucester</li>
+<li>a Category B men’s prison<ul>
+<li>In the United Kingdom, prisoners are divided into four categories of security. Each adult is assigned to a category according to their crime, sentence, the risk of escape, and violent tendencies. The categories are designated with the letters A to D, with A being the highest level of security, and D the lowest.</li>
+<li>Category A, B and C prisons are called closed prisons, whereas category D prisons are called open prisons. Category A prisoners are further divided into Standard Risk, High Risk, and Exceptional Risk, based on their likelihood of escaping.</li>
+<li>B class - those who do not require maximum security, but for whom escape still needs to be made very difficult.</li>
+</ul>
+</li>
+<li>It was originally opened in 1792, on the site of Gloucester Castle</li>
+<li>Gloucester Castle was a Norman-era royal castle situated in the city of Gloucester in Gloucestershire, England. </li>
+<li>It was <strong>demolished</strong> in 1787 and replaced by Gloucester Prison.<ul>
+<li><strong>demolish</strong>: to completely destroy a building, especially in order to use the land for something else</li>
+</ul>
+</li>
+</ul>
+<h4 id="Trip-of-Cex"><a href="#Trip-of-Cex" class="headerlink" title="Trip of Cex"></a>Trip of Cex</h4><ul>
+<li><p><strong>Target</strong>: Steam Link - 25.00￡</p>
+</li>
+<li><p>Opening Hours：</p>
+<table>
+<thead>
+<tr>
+<th>Day</th>
+<th>OpeningHours</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Mon-Sat</td>
+<td>09:00 - 18:00</td>
+</tr>
+<tr>
+<td>Sun</td>
+<td>11:00 - 17:00</td>
+</tr>
+</tbody></table>
+</li>
+<li><p>Train ticket: 12.20￡</p>
+</li>
+</ul>
+<h4 id="England-Era"><a href="#England-Era" class="headerlink" title="England Era"></a>England Era</h4><p>罗马统治时期（43年 - 410年）</p>
+<ul>
+<li><strong>背景</strong>：罗马帝国在公元43年开始征服不列颠，将其纳入帝国版图。罗马人在此建立了城市、道路和防御工事。</li>
+<li><strong>影响</strong>：罗马统治带来了拉丁文化、法律和基督教，奠定了许多现代英格兰城镇的基础。</li>
+<li><strong>知名统治者</strong>：<ul>
+<li><strong>克劳狄一世（Claudius）</strong>：公元43年下令征服不列颠，将其纳入罗马帝国版图。</li>
+<li><strong>卡拉卡拉（Caracalla）</strong>：公元212年发布《安东尼努斯敕令》，将罗马公民权扩展到帝国内所有自由人，包括不列颠居民。</li>
+</ul>
+</li>
+</ul>
+<p>盎格鲁-撒克逊时期（5世纪 - 1066年）</p>
+<ul>
+<li><p><strong>背景</strong>：罗马撤退后，盎格鲁-撒克逊人（包括盎格鲁人、撒克逊人和朱特人）逐渐定居并建立了多个王国，如韦塞克斯、麦西亚和诺森布里亚。</p>
+</li>
+<li><p><strong>影响</strong>：这一时期形成了早期的英格兰文化、语言和社会结构，奠定了现代英语的基础。</p>
+</li>
+<li><p><strong>知名王室家族</strong>：</p>
+<ul>
+<li><strong>韦塞克斯王朝</strong>：盎格鲁-撒克逊时期最强大的王国之一。</li>
+</ul>
+<p><strong>知名皇帝</strong>：</p>
+<ul>
+<li><strong>阿尔弗雷德大帝（Alfred the Great）</strong>：871-899年在位，成功抵御维京入侵，并在教育和法律改革方面做出重大贡献。</li>
+<li><strong>埃塞尔雷德二世（Æthelred the Unready）</strong>：978-1016年在位，其统治时期遭遇丹麦入侵。</li>
+</ul>
+</li>
+</ul>
+<p>维京时期（8世纪 - 11世纪）</p>
+<ul>
+<li><strong>背景</strong>：8世纪末，维京人（主要来自丹麦、挪威和瑞典）开始入侵和定居英格兰北部和东部地区，建立了“丹麦法区”。</li>
+<li><strong>影响</strong>：维京人带来了北欧的文化和影响，许多地名和法律制度保留了维京人的痕迹。</li>
+<li><strong>知名统治者</strong>：<ul>
+<li><strong>克努特大帝（Cnut the Great）</strong>：1016-1035年统治英格兰、丹麦和挪威，建立了北海帝国。</li>
+</ul>
+</li>
+</ul>
+<p>诺曼征服（1066年）</p>
+<ul>
+<li><strong>背景</strong>：1066年，诺曼底公爵威廉一世（威廉征服者）在黑斯廷斯战役中击败了英格兰国王哈罗德二世，成为英格兰国王。</li>
+<li><strong>影响</strong>：诺曼征服带来了诺曼法语和封建制度，显著影响了英格兰的语言、法律和贵族体系。</li>
+</ul>
+<ol start="5">
+<li>法国王室统治时期（1154年 - 1485年）</li>
+</ol>
+<ul>
+<li><p><strong>背景</strong>：从1154年亨利二世即位开始，安茹帝国的领土包括了英格兰和法国大片土地。随后，兰开斯特家族和约克家族（皆有法国血统）之间的内战（玫瑰战争）持续了多年。</p>
+</li>
+<li><p><strong>影响</strong>：英法之间的密切联系导致了英格兰在文化、政治和军事上的重大变化，最终玫瑰战争以都铎王朝的建立而告终。</p>
+</li>
+<li><p><strong>知名王室家族</strong>：</p>
+<ul>
+<li><strong>诺曼底王朝</strong>：由诺曼底公爵威廉一世建立。</li>
+</ul>
+<p><strong>知名皇帝</strong>：</p>
+<ul>
+<li><strong>威廉一世（William the Conqueror）</strong>：1066-1087年在位，通过诺曼征服统一英格兰，建立了封建制度。</li>
+</ul>
+</li>
+</ul>
+<p>都铎王朝（1485年 - 1603年）</p>
+<ul>
+<li><p><strong>背景</strong>：亨利七世通过玫瑰战争胜利建立了都铎王朝，该王朝通过政治联姻和军事征服巩固了其权力。</p>
+</li>
+<li><p><strong>影响</strong>：这一时期标志着宗教改革、英格兰宗教改革以及英国海军的崛起，伊丽莎白一世时期尤其辉煌。</p>
+</li>
+<li><p><strong>知名王室家族</strong>：</p>
+<ul>
+<li><strong>都铎王朝（Tudor dynasty）</strong>：由亨利七世建立，通过政治婚姻和军事胜利巩固了其权力。</li>
+</ul>
+<p><strong>知名皇帝</strong>：</p>
+<ul>
+<li><strong>亨利七世（Henry VII）</strong>：1485-1509年在位，通过玫瑰战争胜利建立了都铎王朝。</li>
+<li><strong>亨利八世（Henry VIII）</strong>：1509-1547年在位，因其六次婚姻和宗教改革而著名。</li>
+<li><strong>伊丽莎白一世（Elizabeth I）</strong>：1558-1603年在位，伊丽莎白时代标志着英格兰文艺复兴和海军力量的崛起。</li>
+</ul>
+</li>
+</ul>
+<p>苏格兰斯图亚特王朝（1603年 - 1714年）</p>
+<ul>
+<li><p><strong>背景</strong>：1603年，苏格兰国王詹姆士六世继承英格兰王位，成为詹姆士一世，联合了英格兰和苏格兰的王室。</p>
+</li>
+<li><p><strong>影响</strong>：斯图亚特王朝期间，英格兰经历了内战、共和制和复辟，最终确立了君主立宪制。</p>
+</li>
+<li><p><strong>知名王室家族</strong>：</p>
+<ul>
+<li><strong>斯图亚特王朝（Stuart dynasty）</strong>：从苏格兰詹姆士六世（即英格兰詹姆士一世）开始，联合了英格兰和苏格兰的王室。</li>
+</ul>
+<p><strong>知名皇帝</strong>：</p>
+<ul>
+<li><strong>詹姆士一世（James I）</strong>：1603-1625年在位，首位联合英格兰和苏格兰的国王。</li>
+<li><strong>查理一世（Charles I）</strong>：1625-1649年在位，因与议会的冲突被处决，导致英国内战和短暂的共和时期。</li>
+<li><strong>查理二世（Charles II）</strong>：1660-1685年在位，王政复辟后恢复了斯图亚特王朝。</li>
+</ul>
+</li>
+</ul>
+<p>汉诺威王朝（1714年 - 至今）</p>
+<ul>
+<li><p><strong>背景</strong>：1714年，汉诺威选帝侯乔治一世继承了英格兰王位，开启了汉诺威王朝。乔治一世的继位是由于其祖母是詹姆士一世的外孙女。</p>
+</li>
+<li><p><strong>影响</strong>：汉诺威王朝时期，英格兰逐渐转型为现代议会民主国家，经历了工业革命和帝国扩张，形成了今日的英国。</p>
+</li>
+<li><p><strong>知名王室家族</strong>：</p>
+<ul>
+<li><strong>汉诺威王朝（House of Hanover）</strong>：由乔治一世开始，随着维多利亚女王的即位，逐渐转型为现代英国王室。</li>
+</ul>
+<p><strong>知名皇帝</strong>：</p>
+<ul>
+<li><strong>乔治一世（George I）</strong>：1714-1727年在位，首位汉诺威家族的英国国王。</li>
+<li><strong>乔治三世（George III）</strong>：1760-1820年在位，因美国独立战争和其长时间的统治而著名。</li>
+<li><strong>维多利亚女王（Queen Victoria）</strong>：1837-1901年在位，她的统治时期被称为“维多利亚时代”，标志着英国的工业革命和帝国扩张。</li>
+<li><strong>温莎王朝（House of Windsor）</strong>：由乔治五世在1917年改名而来，现代英国王室的现行王朝。</li>
+<li><strong>伊丽莎白二世（Queen Elizabeth II）</strong>：1952-2022年在位，英国历史上在位时间最长的君主。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Bristol"><a href="#Bristol" class="headerlink" title="Bristol"></a>Bristol</h3><h4 id="Churches-in-Bristol"><a href="#Churches-in-Bristol" class="headerlink" title="Churches in Bristol"></a>Churches in Bristol</h4><p>以下是布里斯托的所有教堂列表，包括历史教堂和现役教堂：</p>
+<ol>
+<li><p><strong>布里斯托大教堂</strong>（Bristol Cathedral）</p>
+<ul>
+<li><p><strong>历史</strong>：最初为奥古斯丁修道院，建于1140年，1542年成为主教座堂。</p>
+</li>
+<li><p><strong>现状</strong>：现存，作为主教座堂使用。</p>
+</li>
+<li><p><strong>宗派</strong>：英国国教。</p>
+</li>
+<li><p><strong>Bristol Cathedral</strong> - BS1 5TJ</p>
+</li>
+</ul>
+</li>
+<li><p><strong>圣玛丽红码头教堂</strong>（St Mary on the Quay）</p>
+<ul>
+<li><strong>历史</strong>：建于1839-1843年，为Irvingite教派使用。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：罗马天主教。</li>
+<li><strong>St Mary on the Quay</strong> - BS1 6SD</li>
+</ul>
+</li>
+<li><p><strong>圣詹姆斯修道院</strong>（St James’ Priory）</p>
+<ul>
+<li><strong>历史</strong>：始建于1129年，是布里斯托最古老的教堂之一。</li>
+<li><strong>现状</strong>：现存，由拿撒勒小兄弟天主教会使用。</li>
+<li><strong>宗派</strong>：罗马天主教。</li>
+<li><strong>St James’ Priory</strong> - BS1 3NZ</li>
+</ul>
+</li>
+<li><p><strong>圣约翰教堂</strong>（St John on the Wall）</p>
+<ul>
+<li><strong>历史</strong>：建于14世纪，嵌入布里斯托古城墙中。</li>
+<li><strong>现状</strong>：现存，作为旅游景点和礼拜场所。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St John on the Wall</strong> - BS1 2EZ</li>
+</ul>
+</li>
+<li><p><strong>红兰德教堂</strong>（Redland Parish Church）</p>
+<ul>
+<li><strong>历史</strong>：建于1740-1743年。</li>
+<li><strong>现状</strong>：现存，作为教区教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>Redland Parish Church</strong> - BS6 6SA</li>
+</ul>
+</li>
+<li><p><strong>圣马克教堂</strong>（St Mark’s Church, Lord Mayor’s Chapel）</p>
+<ul>
+<li><strong>历史</strong>：始建于1230年，作为高特医院的教堂。</li>
+<li><strong>现状</strong>：现存，作为市长学院教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Mark’s Church (Lord Mayor’s Chapel)</strong> - BS1 5TB</li>
+</ul>
+</li>
+<li><p><strong>圣彼得教堂</strong>（St Peter’s Church）</p>
+<ul>
+<li><strong>历史</strong>：在二战布里斯托大轰炸中被破坏，现为遗址。</li>
+<li><strong>现状</strong>：仅存遗址，位于城堡公园内。</li>
+<li><strong>宗派</strong>：无。</li>
+<li><strong>St Peter’s Church</strong> - BS1 3XB</li>
+</ul>
+</li>
+<li><p><strong>克利夫顿大教堂</strong>（Clifton Cathedral）</p>
+<ul>
+<li><strong>历史</strong>：现代罗马天主教大教堂，建于1973年。</li>
+<li><strong>现状</strong>：现存，作为主教座堂使用。</li>
+<li><strong>宗派</strong>：罗马天主教。</li>
+<li><strong>Clifton Cathedral</strong> - BS8 3BX</li>
+</ul>
+</li>
+<li><p><strong>圣斯蒂芬教堂</strong>（St Stephen’s Church）</p>
+<ul>
+<li><strong>历史</strong>：位于布里斯托老城，历史悠久。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Stephen’s Church</strong> - BS1 1EQ</li>
+</ul>
+</li>
+<li><p><strong>希望教堂</strong>（Hope Chapel）</p>
+<ul>
+<li><strong>历史</strong>：建于1787年，独立教堂。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+<li><strong>Hope Chapel</strong> - BS8 4ND</li>
+</ul>
+</li>
+<li><p><strong>圣保罗教堂</strong>（St Paul’s Church）</p>
+<ul>
+<li><strong>历史</strong>：建于1789-1795年，以其独特的塔楼设计闻名。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Paul’s Church</strong> - BS2 8SJ</li>
+</ul>
+</li>
+<li><p><strong>圣托马斯殉道者教堂</strong>（St Thomas the Martyr）</p>
+<ul>
+<li><strong>历史</strong>：建于1792-1793年，包含部分15世纪的结构。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Thomas the Martyr</strong> - BS1 6QR</li>
+</ul>
+</li>
+<li><p><strong>圣玛丽雷德克利夫教堂</strong>（St Mary Redcliffe）</p>
+<ul>
+<li><strong>历史</strong>：建于12世纪，被誉为英国最美的教区教堂之一。</li>
+<li><strong>现状</strong>：现存，作为教区教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Mary Redcliffe</strong> - BS1 6RA</li>
+</ul>
+</li>
+<li><p><strong>圣安德鲁教堂</strong>（St Andrew’s, Clifton）</p>
+<ul>
+<li><strong>历史</strong>：始建于12世纪，新教堂建于1822年。</li>
+<li><strong>现状</strong>：新教堂在布里斯托大轰炸中受损，1956年拆除。</li>
+<li><strong>宗派</strong>：无。</li>
+<li><strong>St Andrew’s, Clifton</strong> - BS8 3NN</li>
+</ul>
+</li>
+<li><p><strong>圣卢克教堂</strong>（St Luke’s Church）</p>
+<ul>
+<li><strong>历史</strong>：建于15世纪，位于Brislington。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Luke’s Church</strong> - BS4 3EH</li>
+</ul>
+</li>
+<li><p><strong>圣艾丹教堂</strong>（St Aidan’s Church）</p>
+<ul>
+<li><strong>历史</strong>：建于1902年，位于St George。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Aidan’s Church</strong> - BS5 8DR</li>
+</ul>
+</li>
+<li><p><strong>圣奥尔本教堂</strong>（St Alban’s Church）</p>
+<ul>
+<li><strong>历史</strong>：建于1907年，位于Redland。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>St Alban’s Church</strong> - BS6 6HY</li>
+</ul>
+</li>
+<li><p><strong>圣博纳旺图尔教堂</strong>（St Bonaventure’s Church）</p>
+<ul>
+<li><strong>历史</strong>：建于1901年，位于Bishopston。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：罗马天主教。</li>
+<li><strong>St Bonaventure’s Church</strong> - BS7 8HP</li>
+</ul>
+</li>
+<li><p><strong>圣裘德使徒教堂</strong>（Church of St Jude the Apostle with St Matthias-on-the-Weir）</p>
+<ul>
+<li><strong>历史</strong>：建于1849年，位于Old Market。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：英国国教。</li>
+<li><strong>Church of St Jude the Apostle with St Matthias-on-the-Weir</strong> - BS2 0DB</li>
+</ul>
+</li>
+<li><p><strong>东正教圣母教堂</strong>（Eastern Orthodox Church of the Nativity of the Mother of God）</p>
+<ul>
+<li><strong>历史</strong>：建于1888年，提供英语、俄语和罗马尼亚语服务。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：东正教。</li>
+<li><strong>Eastern Orthodox Church of the Nativity of the Mother of God</strong> - BS8 4EJ</li>
+<li>建立背景：东欧移民潮和难民流动</li>
+</ul>
+</li>
+<li><p><strong>伊曼纽尔法院</strong>（Emanuel Court）</p>
+<ul>
+<li><strong>历史</strong>：建于1869年，现已改为公寓。</li>
+<li><strong>现状</strong>：建筑仍存，但不再作为教堂使用。</li>
+<li><strong>宗派</strong>：无。</li>
+<li><strong>Emanuel Court</strong> - BS8 1LS</li>
+</ul>
+</li>
+<li><p><strong>生命社区教会</strong>（Life Community Church Bristol）</p>
+<ul>
+<li><strong>历史</strong>：现代教会，活跃于Fishponds地区。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+<li><strong>Life Community Church Bristol</strong> - BS16 3QR</li>
+</ul>
+</li>
+<li><p><strong>新约教会</strong>（New Covenant Church Bristol）</p>
+<ul>
+<li><strong>历史</strong>：现代教会，位于Lawrence Hill。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+<li><strong>New Covenant Church Bristol</strong> - BS5 0EY</li>
+</ul>
+</li>
+<li><p><strong>新生命教会</strong>（New Life Church Bristol）</p>
+<ul>
+<li><strong>历史</strong>：现代教会，在Frenchay村会堂聚会。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+<li><strong>New Life Church Bristol</strong> - BS16 1NU</li>
+</ul>
+</li>
+<li><p><strong>新房间教堂</strong>（New Room, Bristol）</p>
+<ul>
+<li><strong>历史</strong>：建于1739年，由约翰·卫斯理建立，是卫理公会的发源地。</li>
+<li><strong>现状</strong>：现存，作为博物馆和礼拜场所使用。</li>
+<li><strong>宗派</strong>：卫理公会。</li>
+<li><strong>New Room, Bristol</strong> - BS1 3JE</li>
+</ul>
+</li>
+<li><p><strong>塞文葡萄园教会</strong>（Severn Vineyard Church）</p>
+<ul>
+<li><strong>历史</strong>：成立于2009年，位于Clifton。</li>
+<li><strong>现状</strong>：现存，继续作为教堂使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+<li><strong>Severn Vineyard Church</strong> - BS8 1SL</li>
+</ul>
+</li>
+</ol>
+<h4 id="Bristol-独立教会-Entity"><a href="#Bristol-独立教会-Entity" class="headerlink" title="Bristol 独立教会 Entity"></a>Bristol 独立教会 Entity</h4><ol>
+<li><strong>希望教堂</strong>（Hope Chapel）<ul>
+<li><strong>历史</strong>：建于1787年，最初作为独立教会建立，旨在为当地社区提供宗教服务。</li>
+<li><strong>现状</strong>：现存，继续作为独立教会使用。</li>
+<li><strong>宗派</strong>：独立教会（无特定大宗派隶属）。</li>
+</ul>
+</li>
+<li><strong>生命社区教会</strong>（Life Community Church Bristol）<ul>
+<li><strong>历史</strong>：现代教会，成立于近代，位于Fishponds地区。</li>
+<li><strong>现状</strong>：现存，继续作为独立教会使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+</ul>
+</li>
+<li><strong>新约教会</strong>（New Covenant Church Bristol）<ul>
+<li><strong>历史</strong>：现代教会，位于Lawrence Hill。</li>
+<li><strong>现状</strong>：现存，继续作为独立教会使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+</ul>
+</li>
+<li><strong>新生命教会</strong>（New Life Church Bristol）<ul>
+<li><strong>历史</strong>：现代教会，在Frenchay村会堂聚会。</li>
+<li><strong>现状</strong>：现存，继续作为独立教会使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+</ul>
+</li>
+<li><strong>塞文葡萄园教会</strong>（Severn Vineyard Church）<ul>
+<li><strong>历史</strong>：成立于2009年，位于Clifton。</li>
+<li><strong>现状</strong>：现存，继续作为独立教会使用。</li>
+<li><strong>宗派</strong>：独立教会。</li>
+</ul>
+</li>
+</ol>
+<h4 id="Chapel-Court-Church-Cathedral"><a href="#Chapel-Court-Church-Cathedral" class="headerlink" title="Chapel Court Church Cathedral"></a>Chapel Court Church Cathedral</h4><ul>
+<li>“Chapel”指的是一种较小的礼拜场所，通常附属于更大的教堂、学院、医院、宫殿或私人庄园。它可以是独立的建筑或大建筑物的一部分。</li>
+<li>当“Court”出现在教堂名称中时，通常指的是一个已经被改作非宗教用途的建筑</li>
+</ul>
+<h4 id="Little-Brothers-of-Nazareth"><a href="#Little-Brothers-of-Nazareth" class="headerlink" title="Little Brothers of Nazareth"></a>Little Brothers of Nazareth</h4><ul>
+<li>拿撒勒小兄弟天主教会是一个罗马天主教的小型修会，专注于简朴生活和服务穷人。</li>
+<li>主要致力于社会服务、教育和社区建设，生活方式强调简单和贫穷。</li>
+<li>强调个人和社区的祷告生活，与普通民众和穷人共同生活和工作。</li>
+</ul>
+<h4 id="Bristol-Incomplete-City"><a href="#Bristol-Incomplete-City" class="headerlink" title="Bristol- Incomplete City"></a>Bristol- Incomplete City</h4><ul>
+<li>在中世纪，城市的定义在很大程度上依赖于其宗教结构，尤其是是否拥有一座主教座堂（cathedral）。在中世纪欧洲，主教座堂不仅是宗教中心，也是城市权威和身份的象征。因此，没有主教座堂的地方往往被视为不完全的城市。</li>
+<li>布里斯托现有的布里斯托大教堂（Bristol Cathedral）最初是奥古斯丁修道院，直到1542年才被提升为主教座堂。这意味着在此之前，布里斯托可能在某些宗教视角中没有被完全视为一个“完整的”城市。</li>
+<li>某些观点可能源自于历史惯性，即布里斯托在成为主教座堂所在地之前，以及宗教改革后失去天主教主教座堂地位的时间段，可能在罗马天主教视角中被视为“不完全”的城市。</li>
+<li>对于某些罗马天主教徒来说，城市的宗教地位与其天主教主教座堂的存在密切相关。由于布里斯托的主要宗教标志（即布里斯托大教堂）属于英国国教，而非罗马天主教，因此在某些严格的宗教视角中，布里斯托可能不被完全认同为一个“完整的”天主教城市。</li>
+</ul>
+<h4 id="Augustinian-Abbey"><a href="#Augustinian-Abbey" class="headerlink" title="Augustinian Abbey"></a>Augustinian Abbey</h4><ul>
+<li>奥古斯丁会（Augustinian Order），也被称为奥古斯丁隐修会，是一个天主教修道会，以圣奥古斯丁为其灵感和指导。以圣奥古斯丁（354-430年）为其灵感，他所撰写的《忏悔录》和《上帝之城》等著作对基督教神学产生了深远的影响。</li>
+<li>圣奥古斯丁本人并没有建立修道会，但他的生活和教导影响了后来许多修道团体。1256年，教皇亚历山大四世正式合并了多个奉行奥古斯丁规则的小型修道团体，形成了一个统一的修道会，即奥古斯丁隐修会。</li>
+</ul>
+<h4 id="Prayer-and-Mass"><a href="#Prayer-and-Mass" class="headerlink" title="Prayer and Mass"></a>Prayer and Mass</h4><p><strong>祷告 (Prayer)</strong></p>
+<ol>
+<li><strong>定义</strong>：<ul>
+<li>祷告是信徒与上帝直接沟通的一种个人或集体的宗教活动。通过祷告，信徒表达感恩、赞美、忏悔或请求。</li>
+</ul>
+</li>
+<li><strong>形式</strong>：<ul>
+<li><strong>个人祷告</strong>：可以在任何时间和地点进行，内容和形式多样，随个人的内心状态和需求而定。</li>
+<li><strong>集体祷告</strong>：通常在宗教集会中进行，例如教堂礼拜、家庭聚会或其他宗教活动中。</li>
+</ul>
+</li>
+<li><strong>内容</strong>：<ul>
+<li>祷告的内容可以是感谢、赞美、忏悔、请求或默想。信徒可以通过固定的祷告词（如主祷文）或即兴的方式表达自己的感情和愿望。</li>
+</ul>
+</li>
+<li><strong>目的</strong>：<ul>
+<li>祷告的主要目的是与上帝建立个人联系，寻求精神上的支持和指导。</li>
+</ul>
+</li>
+</ol>
+<p><strong>弥撒 (Mass)</strong></p>
+<ol>
+<li><strong>定义</strong>：<ul>
+<li>弥撒是罗马天主教会中的圣礼，也是基督教中最重要的宗教仪式之一。弥撒是纪念和重现耶稣基督最后的晚餐和牺牲。</li>
+</ul>
+</li>
+<li><strong>形式</strong>：<ul>
+<li>弥撒有固定的仪式和程序，包括圣经阅读、讲道、祷告、奉献、圣餐礼等。通常由神父或牧师主持。</li>
+</ul>
+</li>
+<li><strong>内容</strong>：<ul>
+<li>弥撒分为两大部分：圣道礼仪和圣餐礼仪。圣道礼仪包括读经、福音和讲道；圣餐礼仪包括圣餐的祝圣和分发。<ul>
+<li><strong>圣道礼仪</strong>：读经、唱诗、讲道和信经。</li>
+<li><strong>圣餐礼仪</strong>：饼和酒的祝圣和分发，信徒接受圣餐。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>目的</strong>：<ul>
+<li>弥撒的目的是纪念耶稣基督的牺牲，通过圣餐礼与基督结合，表达对上帝的敬拜和感恩。</li>
+</ul>
+</li>
+</ol>
+<h2 id="July"><a href="#July" class="headerlink" title="July"></a>July</h2>
+        </div>
+
+        
+            <div class="post-copyright-info w-full my-8 px-2 sm:px-6 md:px-8">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li><strong>Title:</strong> UK中古游记</li>
+        <li><strong>Author:</strong> Ricardo Pu</li>
+        <li><strong>Created at
+                :</strong> 2024-06-03 20:23:00</li>
+        
+            <li>
+                <strong>Updated at
+                    :</strong> 2024-06-08 18:30:29
+            </li>
+        
+        <li>
+            <strong>Link:</strong> https://ricardopotter.github.io/2024/06/03/GB中古游记/
+        </li>
+        <li>
+            <strong>
+                License:
+            </strong>
+            
+
+            
+                This work is licensed under <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0">CC BY-NC-SA 4.0</a>.
+            
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <ul class="post-tags-box text-lg mt-1.5 flex-wrap justify-center flex md:hidden">
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Travelogue/">#Travelogue</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/tags/Journal/">#Journal</a>&nbsp;
+                    </li>
+                
+            </ul>
+        
+
+        
+
+        
+            <div class="article-nav my-8 flex justify-between items-center px-2 sm:px-6 md:px-8">
+                
+                    <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="prev"
+                        rel="prev"
+                        href="/2024/06/03/Markdown%E6%97%A0%E5%B7%AE%E5%88%AB%E5%8A%A0%E5%85%A5%E7%9B%AE%E5%BD%95/"
+                        >
+                            <span class="left arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">Markdown无差别加入目录</span>
+                                <span class="post-nav-item">Prev posts</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
+                        <a class="next"
+                        rel="next"
+                        href="/2024/05/11/The%20Idea%20of%20You%20Vocabulary/"
+                        >
+                            <span class="title flex justify-center items-center">
+                                <span class="post-nav-title-item">The Idea of You Vocabulary</span>
+                                <span class="post-nav-item">Next posts</span>
+                            </span>
+                            <span class="right arrow-icon flex justify-center items-center">
+                                <i class="fa-solid fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+
+        
+            <div class="comment-container px-2 sm:px-6 md:px-8 pb-8">
+                <div class="comments-container mt-10 w-full ">
+    <div id="comment-anchor" class="w-full h-2.5"></div>
+    <div class="comment-area-title w-full my-1.5 md:my-2.5 text-xl md:text-3xl font-bold">
+        Comments
+    </div>
+    
+
+        
+            
+    <div id="gitalk-container"></div>
+    <script data-swup-reload-script
+            src="//cdn.staticfile.org/gitalk/1.8.0/gitalk.min.js"></script>
+    <script data-swup-reload-script>
+
+        function loadGitalk() {
+            let __gitalk__pathname = decodeURI(location.pathname);
+            const __gitalk__pathnameLength = __gitalk__pathname.length;
+            const __gitalk__pathnameMaxLength = 50;
+            if (__gitalk__pathnameLength > __gitalk__pathnameMaxLength) {
+                __gitalk__pathname = __gitalk__pathname.substring(0, __gitalk__pathnameMaxLength - 3) + '...';
+            }
+
+            try {
+                Gitalk && new Gitalk({
+                    clientID: 'Ov23liQ2aDqTK9mhvXKL',
+                    clientSecret: '7be4bb5fe7232f32a7a71ca2bfb7dfedeeb60c68',
+                    repo: 'RicardoPotter.github.io',
+                    owner: 'RicardoPotter',
+                    admin: ['RicardoPotter'],
+                    id: __gitalk__pathname,
+                    language: 'en',
+                    proxy: 'https://github.com/login/oauth/access_token'
+                }).render('gitalk-container');
+
+            } catch (e) {
+                window.Gitalk = null;
+            }
+        }
+
+        if ('true') {
+            const loadGitalkTimeout = setTimeout(() => {
+                loadGitalk();
+                clearTimeout(loadGitalkTimeout);
+            }, 1000);
+        } else {
+            window.addEventListener('DOMContentLoaded', loadGitalk);
+        }
+    </script>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+
+    
+        <div class="toc-content-container">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">UK中古游记</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#June"><span class="nav-text">June</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Gloucester"><span class="nav-text">Gloucester</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#It-is-a-cathedral-city"><span class="nav-text">It is a cathedral city.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#It-is-the-county-town-of-Gloucestershire"><span class="nav-text">It is the county town of Gloucestershire.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#It-lies-on-the-River-Severn"><span class="nav-text">It lies on the River Severn.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Gloucester-was-founded-by-the-Romans-and-became-an-important-city-and-colony-in-AD-97-under-Emperor-Nerva-as-Colonia-Glevum-Nervensis-It-was-granted-its-first-charter-in-1155-by-Henry-II"><span class="nav-text">Gloucester was founded by the Romans and became an important city and colony in AD 97, under Emperor Nerva as Colonia Glevum Nervensis.It was granted its first charter in 1155 by Henry II.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Major-attraction-of-the-city-is-Gloucester-Cathedral"><span class="nav-text">Major attraction of the city is Gloucester Cathedral</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-former-county-jail"><span class="nav-text">The former county jail</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Trip-of-Cex"><span class="nav-text">Trip of Cex</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#England-Era"><span class="nav-text">England Era</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Bristol"><span class="nav-text">Bristol</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Churches-in-Bristol"><span class="nav-text">Churches in Bristol</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bristol-%E7%8B%AC%E7%AB%8B%E6%95%99%E4%BC%9A-Entity"><span class="nav-text">Bristol 独立教会 Entity</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Chapel-Court-Church-Cathedral"><span class="nav-text">Chapel Court Church Cathedral</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Little-Brothers-of-Nazareth"><span class="nav-text">Little Brothers of Nazareth</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Bristol-Incomplete-City"><span class="nav-text">Bristol- Incomplete City</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Augustinian-Abbey"><span class="nav-text">Augustinian Abbey</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Prayer-and-Mass"><span class="nav-text">Prayer and Mass</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#July"><span class="nav-text">July</span></a></li></ol>
+
+    </div>
+</div>
+        </div>
+    
+</div>
+
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2024</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">Ricardo Pu</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        18 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.2</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
