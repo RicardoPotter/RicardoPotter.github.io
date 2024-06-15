@@ -18,16 +18,16 @@
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta name="description" content="问题描述（可以不看） 最速解决方法（省流）  问题描述（可以不看）当本地建立git仓库和远程代码托管平台上建立远程git仓库，两个动作并不匹配的时候，会出现一系列的同步问题。以我本次遇到的情况简述：先在本地建立并初始化一git repo，并在本地多次进行一系列 git add 和 git commit 操作，搭了本仓库的雏形； 12345git init UoB-Software-Toolscd">
+        <meta name="description" content="手动解决Github本地分支与远程分支以及远程分支之间冲突 | Solve merge conflicts manually between remote branch and local branch">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git本地远程冲突解决">
 <meta property="og:url" content="https://ricardopotter.github.io/RicardoBlog/2024/03/16/Git%E6%9C%AC%E5%9C%B0%E8%BF%9C%E7%A8%8B%E5%86%B2%E7%AA%81%E8%A7%A3%E5%86%B3/index.html">
 <meta property="og:site_name" content="Ricardo Pu&#39;s Blog">
-<meta property="og:description" content="问题描述（可以不看） 最速解决方法（省流）  问题描述（可以不看）当本地建立git仓库和远程代码托管平台上建立远程git仓库，两个动作并不匹配的时候，会出现一系列的同步问题。以我本次遇到的情况简述：先在本地建立并初始化一git repo，并在本地多次进行一系列 git add 和 git commit 操作，搭了本仓库的雏形； 12345git init UoB-Software-Toolscd">
+<meta property="og:description" content="手动解决Github本地分支与远程分支以及远程分支之间冲突 | Solve merge conflicts manually between remote branch and local branch">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://ricardopotter.github.io/RicardoBlog/images/git_merge_failure.png">
 <meta property="article:published_time" content="2024-03-16T13:23:51.000Z">
-<meta property="article:modified_time" content="2024-06-04T00:46:21.644Z">
+<meta property="article:modified_time" content="2024-06-15T00:42:02.916Z">
 <meta property="article:author" content="Ricardo Pu">
 <meta property="article:tag" content="Handy-Trick">
 <meta property="article:tag" content="Git">
@@ -662,7 +662,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">28</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">43</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/categories">
@@ -670,7 +670,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">18</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -724,8 +724,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-06-04 01:46:21</span>
-            <span class="mobile">2024-06-04 01:46:21</span>
+            <span class="desktop">2024-06-15 01:42:02</span>
+            <span class="mobile">2024-06-15 01:42:02</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -847,7 +847,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-06-04 01:46:21
+                    :</strong> 2024-06-15 01:42:02
             </li>
         
         <li>
@@ -891,13 +891,13 @@
                     <div class="article-prev border-border-color shadow-redefine-flat shadow-shadow-color-2 rounded-medium px-4 py-2 hover:shadow-redefine-flat-hover hover:shadow-shadow-color-2">
                         <a class="prev"
                         rel="prev"
-                        href="/RicardoBlog/2024/04/14/Data-Struct-Graph-%E5%9B%BE/"
+                        href="/RicardoBlog/2024/03/28/%E9%89%B4%E5%AE%9A%E4%BD%A0%E5%87%BB%E6%AF%99%E4%BD%A0/"
                         >
                             <span class="left arrow-icon flex justify-center items-center">
                                 <i class="fa-solid fa-chevron-left"></i>
                             </span>
                             <span class="title flex justify-center items-center">
-                                <span class="post-nav-title-item">Data Struct: Graph 图</span>
+                                <span class="post-nav-title-item">鉴定你击毙你 Tag You Ruin You</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -951,7 +951,7 @@
                 Gitalk && new Gitalk({
                     clientID: 'Ov23liGO2xyBBdllskJp',
                     clientSecret: '4a88fea52acc1bb7ad9f8b5796eca97de4427af9',
-                    repo: 'RicardoPotter.github.io',
+                    repo: 'RicardoBlog',
                     owner: 'RicardoPotter',
                     admin: ['RicardoPotter'],
                     id: __gitalk__pathname,
@@ -1023,7 +1023,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        18 posts in total
+                        21 posts in total
                     </span>
                     
                 </p>
