@@ -26,13 +26,16 @@
 <meta property="og:description" content="First Note of techniques learned in UoB summer project.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-06-09T18:39:21.000Z">
-<meta property="article:modified_time" content="2024-06-15T00:32:39.141Z">
+<meta property="article:modified_time" content="2024-06-21T02:11:25.645Z">
 <meta property="article:author" content="Ricardo Pu">
 <meta property="article:tag" content="CS Learning">
 <meta property="article:tag" content="Research">
 <meta property="article:tag" content="University of Bristol">
 <meta property="article:tag" content="Machine Learning">
 <meta property="article:tag" content="BCI">
+<meta property="article:tag" content="NN">
+<meta property="article:tag" content="RNN">
+<meta property="article:tag" content="LSTM">
 <meta name="twitter:card" content="summary">
     
     
@@ -663,7 +666,7 @@
 
         <div class="statistics flex justify-around my-2.5">
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/tags">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">43</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">46</div>
         <div class="label text-third-text-color text-sm">Tags</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/categories">
@@ -671,7 +674,7 @@
         <div class="label text-third-text-color text-sm">Categories</div>
     </a>
     <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/RicardoBlog/archives">
-        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">21</div>
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">22</div>
         <div class="label text-third-text-color text-sm">Posts</div>
     </a>
 </div>
@@ -725,8 +728,8 @@
     
         <span class="article-date article-meta-item">
             <i class="fa-regular fa-wrench"></i>&nbsp;
-            <span class="desktop">2024-06-15 01:32:39</span>
-            <span class="mobile">2024-06-15 01:32:39</span>
+            <span class="desktop">2024-06-21 03:11:25</span>
+            <span class="mobile">2024-06-21 03:11:25</span>
             <span class="hover-info">Updated</span>
         </span>
     
@@ -773,6 +776,18 @@
                         | <a href="/RicardoBlog/tags/BCI/">BCI</a>&nbsp;
                     </li>
                 
+                    <li>
+                        | <a href="/RicardoBlog/tags/NN/">NN</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/RicardoBlog/tags/RNN/">RNN</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/RicardoBlog/tags/LSTM/">LSTM</a>&nbsp;
+                    </li>
+                
             </ul>
         </span>
     
@@ -796,7 +811,204 @@
 
 
         <div class="article-content markdown-body px-2 sm:px-6 md:px-8 pb-8">
-            
+            <p>神经网络是一种模拟生物大脑结构和功能的计算模型，广泛应用于人工智能和机器学习领域。它主要由大量互相连接的人工神经元（或节点）组成，通过学习从数据中提取特征和模式，以解决各种复杂问题。</p>
+<h3 id="Neural-Network基本组成部分"><a href="#Neural-Network基本组成部分" class="headerlink" title="Neural Network基本组成部分"></a>Neural Network基本组成部分</h3><ol>
+<li><p><strong>神经元（Neurons）</strong>：</p>
+<ul>
+<li>类似于生物神经元，人工神经元接收输入信号，进行加权求和，然后通过激活函数输出结果。</li>
+</ul>
+</li>
+<li><p><strong>层（Layers）</strong>：</p>
+<ul>
+<li>神经网络通常包括输入层、隐藏层和输出层。输入层接收外部数据，隐藏层进行数据处理，输出层给出最终结果。</li>
+</ul>
+</li>
+<li><p><strong>连接权重（Weights）</strong>：</p>
+<ul>
+<li>每个连接都有一个权重，表示信号的重要性。通过训练，网络会调整这些权重以最小化预测误差。</li>
+</ul>
+</li>
+<li><p><strong>激活函数（Activation Functions）</strong>：</p>
+<ul>
+<li>激活函数决定神经元的输出，如Sigmoid、ReLU（修正线性单元）和Tanh（双曲正切）等。</li>
+</ul>
+</li>
+</ol>
+<h3 id="Simple-NN-Examples"><a href="#Simple-NN-Examples" class="headerlink" title="Simple NN Examples"></a>Simple NN Examples</h3><h4 id="一个简单的FNN-前馈神经网络"><a href="#一个简单的FNN-前馈神经网络" class="headerlink" title="一个简单的FNN-前馈神经网络"></a>一个简单的FNN-前馈神经网络</h4><p>TensorFlow and its advanced API Keras </p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers, models</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载MNIST数据集</span></span><br><span class="line">mnist = tf.keras.datasets.mnist</span><br><span class="line">(x_train, y_train), (x_test, y_test) = mnist.load_data()</span><br><span class="line"><span class="comment"># MNIST dataset是一个包含手写数字的标准数据集，每张图像是28*28像素</span></span><br><span class="line"><span class="comment"># 标签是0到9之间的数字</span></span><br><span class="line"><span class="comment"># tf.keras.datasets.mnist 是TensorFlow中的一个模块，用于加载MNIST数据集</span></span><br><span class="line"><span class="comment"># mnist.load_data():返回两个元组，分别是训练数据(x_train,y_train);和测试数据(x_test,y_test)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化数据</span></span><br><span class="line">x_train, x_test = x_train / <span class="number">255.0</span>, x_test / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<p>假设我有自己的数据文件，格式与MNIST数据相同。我需要将数据加载到numpy数组中，并进行同样的归一化处理。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自定义函数加载图像并转换为numpy数组</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_custom_data</span>(<span class="params">data_dir</span>):</span><br><span class="line">    images = []</span><br><span class="line">    labels = []</span><br><span class="line">    <span class="keyword">for</span> file_name <span class="keyword">in</span> os.listdir(data_dir):</span><br><span class="line">        <span class="keyword">if</span> file_name.endswith(<span class="string">&#x27;.png&#x27;</span>):  <span class="comment"># 假设图像格式为PNG</span></span><br><span class="line">            label = <span class="built_in">int</span>(file_name.split(<span class="string">&#x27;_&#x27;</span>)[<span class="number">0</span>])  <span class="comment"># 假设文件名格式为 &quot;label_index.png&quot;</span></span><br><span class="line">            img_path = os.path.join(data_dir, file_name)</span><br><span class="line">            img = Image.<span class="built_in">open</span>(img_path).convert(<span class="string">&#x27;L&#x27;</span>)  <span class="comment"># 转换为灰度图</span></span><br><span class="line">            img = img.resize((<span class="number">28</span>, <span class="number">28</span>))  <span class="comment"># 确保图像大小为28x28</span></span><br><span class="line">            img_array = np.array(img)</span><br><span class="line">            images.append(img_array)</span><br><span class="line">            labels.append(label)</span><br><span class="line">    <span class="keyword">return</span> np.array(images), np.array(labels)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加载自定义数据</span></span><br><span class="line">custom_data_dir = <span class="string">&#x27;path_to_your_custom_data&#x27;</span>  <span class="comment"># 替换为你的数据文件夹路径</span></span><br><span class="line">x_custom, y_custom = load_custom_data(custom_data_dir)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 归一化自定义数据</span></span><br><span class="line">x_custom = x_custom / <span class="number">255.0</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>加载完毕，构建和训练模型</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 构建模型</span></span><br><span class="line">model = models.Sequential()</span><br><span class="line">model.add(layers.Flatten(input_shape=(<span class="number">28</span>, <span class="number">28</span>)))  <span class="comment"># 将28x28的图像展开成784维的向量</span></span><br><span class="line">model.add(layers.Dense(<span class="number">128</span>, activation=<span class="string">&#x27;relu&#x27;</span>))  <span class="comment"># 全连接层，包含128个神经元，激活函数为ReLU</span></span><br><span class="line">model.add(layers.Dense(<span class="number">10</span>, activation=<span class="string">&#x27;softmax&#x27;</span>))  <span class="comment"># 输出层，包含10个神经元，对应10个类别</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 编译模型</span></span><br><span class="line">model.<span class="built_in">compile</span>(optimizer=<span class="string">&#x27;adam&#x27;</span>,</span><br><span class="line">              loss=<span class="string">&#x27;sparse_categorical_crossentropy&#x27;</span>,</span><br><span class="line">              metrics=[<span class="string">&#x27;accuracy&#x27;</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 训练模型</span></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>用训练好的模型对我的数据进行预测</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 预测自定义数据</span></span><br><span class="line">predictions = model.predict(x_custom)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印预测结果</span></span><br><span class="line"><span class="keyword">for</span> i, prediction <span class="keyword">in</span> <span class="built_in">enumerate</span>(predictions):</span><br><span class="line">    predicted_label = np.argmax(prediction)</span><br><span class="line">    true_label = y_custom[i]</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&#x27;图像 <span class="subst">&#123;i&#125;</span>: 预测标签 = <span class="subst">&#123;predicted_label&#125;</span>, 实际标签 = <span class="subst">&#123;true_label&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+
+
+<p>It is a simple FNN, used to solve a basic sorting problem. The MNIST handwriting number identification. MNIST dataset contains 28*28 size image of handwriting image. Every image reflect a tag, which signify the image’s number 0-9.</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4><h4 id="Python-Tuple-Review元组复习"><a href="#Python-Tuple-Review元组复习" class="headerlink" title="Python-Tuple Review元组复习"></a>Python-Tuple Review元组复习</h4><p>Tuple is  a kind of data struct in Python, used to store multiple values. Tuple is similar to list. But there is crucial difference.</p>
+<ul>
+<li><p>不可变性：元组一旦创建，其中的元素就不能修改。这与列表不同，列表是可变的，可以在创建后修改元素。</p>
+</li>
+<li><p>定义： 用 <code>()</code> round bracket to define Tuple, separate elements in Tuple by comma. 圆括号定义，逗号分隔。</p>
+</li>
+<li><p>Access 访问：用索引访问 e.g. <code>print(my_tuple[0])</code></p>
+</li>
+<li><p>Unpacking 解包：Assign the values of a tuple to multiple variables in a single statement. 将一个元组中的多个值解包给多个不同的变量</p>
+</li>
+</ul>
+<h5 id="Unpacking"><a href="#Unpacking" class="headerlink" title="Unpacking"></a>Unpacking</h5><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my_tuple = (<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>)</span><br><span class="line">a,b,c = my_tuple</span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment"># Output: 10</span></span><br><span class="line"><span class="built_in">print</span>(b) <span class="comment"># Output: 20</span></span><br><span class="line"><span class="built_in">print</span>(c) <span class="comment"># Output: 30</span></span><br></pre></td></tr></table></figure></div>
+
+<p>Unpacking the tuple into variables a, b and c.</p>
+<h5 id="Access"><a href="#Access" class="headerlink" title="Access"></a>Access</h5><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">my_tuple = (<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>)</span><br><span class="line"><span class="built_in">print</span>(my_tuple[<span class="number">0</span>]) <span class="comment"># Output: 10</span></span><br><span class="line"><span class="built_in">print</span>(my_tuple[<span class="number">2</span>]) <span class="comment"># Output: 30</span></span><br></pre></td></tr></table></figure></div>
+
+<p>In Python, I can access elements of a tuple using an index. An inde is a number that indicates the position of the element in the tuple, starting from zero for the first element’s index.</p>
+<h4 id="Q-什么叫模型的评估，我为啥要评估，怎么评估"><a href="#Q-什么叫模型的评估，我为啥要评估，怎么评估" class="headerlink" title="Q-什么叫模型的评估，我为啥要评估，怎么评估"></a>Q-什么叫模型的评估，我为啥要评估，怎么评估</h4><h4 id="Q-什么叫归一化，为啥要归一化，归一化有没有原则和规则"><a href="#Q-什么叫归一化，为啥要归一化，归一化有没有原则和规则" class="headerlink" title="Q-什么叫归一化，为啥要归一化，归一化有没有原则和规则"></a>Q-什么叫归一化，为啥要归一化，归一化有没有原则和规则</h4><p>Normalization 是将数据调整到特定范围内的过程。通常是[0,1] or [-1,1]的过程。在数据处理中，Normalization is kinda of preprocessing.归一化后的数据范围较小，计算时会更加高效，从而加快模型的训练速度。</p>
+<p><strong>In my project, I should check what preprocessing with George</strong></p>
+<h5 id="Min-max归一化"><a href="#Min-max归一化" class="headerlink" title="Min-max归一化"></a>Min-max归一化</h5><p>将数据缩放到[0,1]区间：</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_norm = (X - X.<span class="built_in">min</span>()) / (X.<span class="built_in">max</span>() - X.<span class="built_in">min</span>())</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="Z-score归一化"><a href="#Z-score归一化" class="headerlink" title="Z-score归一化"></a>Z-score归一化</h5><p>将数据调整为均值为0，标准差为1：<br><strong>原理</strong>：</p>
+<ul>
+<li>Z-score归一化，也称为标准化（Standardization），是将数据转换为均值为0，标准差为1的分布。</li>
+<li>公式：Xnorm​ &#x3D; (X−μ)➗​σ<ul>
+<li>μ 是数据的均值（mean）。</li>
+<li>σ 是数据的标准差（standard deviation）。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_norm = (X - X.mean()) / X.std()</span><br></pre></td></tr></table></figure></div>
+
+<p><strong>操作方法</strong>：</p>
+<ul>
+<li>对于每个数据点 X，我们计算其归一化后的值 Xnorm​，方法是将数据点减去均值，然后除以标准差。</li>
+</ul>
+<p><strong>具体步骤：</strong></p>
+<ol>
+<li><p><strong>计算均值（mean）</strong>：</p>
+<ul>
+<li>均值是所有数据点的平均值，表示数据的中心位置。</li>
+<li>公式：μ&#x3D;N1​∑i&#x3D;1N​Xi​</li>
+<li>在代码中，使用 <code>X.mean()</code> 计算。</li>
+</ul>
+</li>
+<li><p><strong>计算标准差（standard deviation）</strong>：</p>
+<ul>
+<li>标准差表示数据的离散程度，即数据点相对于均值的平均偏差。</li>
+<li>公式：σ&#x3D;N1​∑i&#x3D;1N​(Xi​−μ)2​</li>
+<li>在代码中，使用 <code>X.std()</code> 计算。</li>
+</ul>
+</li>
+<li><p><strong>归一化</strong>：</p>
+<ul>
+<li>对于每个数据点 X，计算其归一化后的值：Xnorm​&#x3D;X−μ &#x2F; σ​</li>
+</ul>
+</li>
+</ol>
+<p><strong><code>mean()</code> 方法</strong>：</p>
+<ul>
+<li><code>mean()</code> 是 NumPy 数组对象的方法，用于计算数组中所有元素的平均值。</li>
+<li>例子：对于数组 <code>X = np.array([1, 2, 3, 4, 5])</code>，<code>X.mean()</code> 计算的结果是 <code>3.0</code>。</li>
+</ul>
+<p><strong><code>std()</code> 方法</strong>：</p>
+<ul>
+<li><code>std()</code> 是 NumPy 数组对象的方法，用于计算数组中所有元素的标准差。</li>
+<li>例子：对于数组 <code>X = np.array([1, 2, 3, 4, 5])</code>，<code>X.std()</code> 计算的结果是 <code>1.4142135623730951</code>。</li>
+</ul>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 示例数据</span></span><br><span class="line">X = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算均值</span></span><br><span class="line">mean = X.mean()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Mean: <span class="subst">&#123;mean&#125;</span>&#x27;</span>)  <span class="comment"># 输出: Mean: 3.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 计算标准差</span></span><br><span class="line">std = X.std()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Standard Deviation: <span class="subst">&#123;std&#125;</span>&#x27;</span>)  <span class="comment"># 输出: Standard Deviation: 1.4142135623730951</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Z-score 归一化</span></span><br><span class="line">X_norm = (X - mean) / std</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Z-score Normalized Data: <span class="subst">&#123;X_norm&#125;</span>&#x27;</span>)</span><br><span class="line"><span class="comment"># 输出: Z-score Normalized Data: [-1.41421356 -0.70710678  0.  0.70710678  1.41421356]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h6 id="Z-Score-Nomalization详细步骤："><a href="#Z-Score-Nomalization详细步骤：" class="headerlink" title="Z-Score Nomalization详细步骤："></a><strong>Z-Score Nomalization详细步骤</strong>：</h6><ol>
+<li><p><strong>计算均值</strong>：</p>
+<ul>
+<li>数组 <code>X</code> 的均值 μ&#x3D;3.0。</li>
+<li><code>X.mean()</code> 计算整个数组的平均值。</li>
+</ul>
+</li>
+<li><p><strong>计算标准差</strong>：</p>
+<ul>
+<li>数组 <code>X</code> 的标准差 σ≈1.414。</li>
+<li><code>X.std()</code> 计算整个数组的标准差。</li>
+</ul>
+</li>
+<li><p><strong>归一化</strong>：</p>
+<ul>
+<li>对数组中的每个元素 Xi​，使用公式 Xnorm​&#x3D;σXi​−μ​ 进行归一化。</li>
+</ul>
+</li>
+</ol>
+<h6 id="Z-score总结"><a href="#Z-score总结" class="headerlink" title="Z-score总结"></a>Z-score总结</h6><p>Z-score归一化是将数据调整为均值为0、标准差为1的过程。这可以通过减去均值并除以标准差来实现。<code>mean()</code> 和 <code>std()</code> 方法分别用于计算数据的均值和标准差，这些方法由NumPy库提供，用于简化数据处理过程。</p>
+<h5 id="最大绝对值归一化"><a href="#最大绝对值归一化" class="headerlink" title="最大绝对值归一化"></a>最大绝对值归一化</h5><p>将数据缩放到[-1,1]区间，适用于有正负值的数据：</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">x_norm = x / np.<span class="built_in">abs</span>(x).<span class="built_in">max</span>()</span><br></pre></td></tr></table></figure></div>
+
+<h5 id="Sample-using-Z-score-and-Min-Max"><a href="#Sample-using-Z-score-and-Min-Max" class="headerlink" title="Sample using Z-score and Min-Max"></a>Sample using Z-score and Min-Max</h5><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 实例数据</span></span><br><span class="line">X = np.array([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Min-Max 归一化</span></span><br><span class="line">X_min_max_norm = (X - X.<span class="built_in">min</span>()) / (X.<span class="built_in">max</span>() - X.<span class="built_in">min</span>())</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Min-Max Normalized Data: <span class="subst">&#123;X_min_max_norm&#125;</span>&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Z-score归一化</span></span><br><span class="line">X_z_score_norm = (X - X.mean()) / X.std()</span><br><span class="line"><span class="built_in">print</span>(<span class="string">f&#x27;Z-score Normalized Data: <span class="subst">&#123;X_z_score_norm&#125;</span>&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+
+<p>Output:</p>
+<div class="highlight-container" data-rel="Plaintext"><figure class="iseeu highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Min-Max Normalized Data: [0.   0.25 0.5  0.75 1.  ]</span><br><span class="line">Z-score Normalized Data: [-1.41421356 -0.70710678  0.  0.70710678  1.41421356]</span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="Q-是不是只有我自己的数据格式和现存机器学习库的标准数据集一致，我才能进行训练、加载、预测"><a href="#Q-是不是只有我自己的数据格式和现存机器学习库的标准数据集一致，我才能进行训练、加载、预测" class="headerlink" title="Q-是不是只有我自己的数据格式和现存机器学习库的标准数据集一致，我才能进行训练、加载、预测"></a>Q-是不是只有我自己的数据格式和现存机器学习库的标准数据集一致，我才能进行训练、加载、预测</h4><h4 id="Q-numpy数组是什么，numpy基本教学"><a href="#Q-numpy数组是什么，numpy基本教学" class="headerlink" title="Q-numpy数组是什么，numpy基本教学"></a>Q-numpy数组是什么，numpy基本教学</h4><p><strong>NumPy</strong> 是 Python 中一个非常流行的科学计算库，它提供了对多维数组对象（即 <code>ndarray</code>）的支持。NumPy 数组与 Python 的原生列表有很多相似之处，但它们提供了更高效的存储和操作多维数据的功能。</p>
+<ul>
+<li>每次在写脚本的时候都导入NumPy</li>
+</ul>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p>创建NumPy数组的两种方法</p>
+<ul>
+<li>从列表创建</li>
+</ul>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">list_sample = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">np_array = np.array(list_sample)</span><br><span class="line"><span class="built_in">print</span>(np_array) <span class="comment"># Output: [1 2 3 4 5]</span></span><br></pre></td></tr></table></figure></div>
+
+<ul>
+<li><p>用Numpy内置函数创建</p>
+<ol>
+<li><p>全零</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">zeros_array = np.zeros((<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line"><span class="built_in">print</span>(zeros_array)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># [[0. 0. 0. 0.]</span></span><br><span class="line"><span class="comment">#  [0. 0. 0. 0.]</span></span><br><span class="line"><span class="comment">#  [0. 0. 0. 0.]]</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>全一</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ones_array = np.ones((<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line"><span class="built_in">print</span>(ones_array)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># [[1. 1. 1.]</span></span><br><span class="line"><span class="comment">#  [1. 1. 1.]]</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>创建指定值的数组</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">full_array = np.full((<span class="number">2</span>, <span class="number">2</span>), <span class="number">7</span>)</span><br><span class="line"><span class="built_in">print</span>(full_array)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># [[7 7]</span></span><br><span class="line"><span class="comment">#  [7 7]]</span></span><br></pre></td></tr></table></figure></div>
+
+
+</li>
+<li><p>创建一个包含一定范围内数字的数组</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">range_array = np.arange(<span class="number">0</span>, <span class="number">10</span>, <span class="number">2</span>)</span><br><span class="line"><span class="built_in">print</span>(range_array)</span><br><span class="line"><span class="comment"># 输出: [0 2 4 6 8]</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>创建随机数组</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">random_array = np.random.random((<span class="number">2</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(random_array)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># [[0.26726124 0.99429272]</span></span><br><span class="line"><span class="comment">#  [0.55237008 0.27386384]]</span></span><br></pre></td></tr></table></figure></div></li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>Access Numpy Array</p>
+<ul>
+<li><p>Access Numpy Array</p>
+<p>NumPy 数组可以使用索引和切片操作来访问元素：</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">0</span>, <span class="number">0</span>])  <span class="comment"># 输出: 1</span></span><br><span class="line"><span class="built_in">print</span>(array[<span class="number">1</span>, <span class="number">2</span>])  <span class="comment"># 输出: 6</span></span><br><span class="line"><span class="built_in">print</span>(array[:, <span class="number">1</span>])  <span class="comment"># 输出: [2 5]</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>Element level math calculation</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a = np.array([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">b = np.array([<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(a + b)  <span class="comment"># 输出: [5 7 9]</span></span><br><span class="line"><span class="built_in">print</span>(a * b)  <span class="comment"># 输出: [ 4 10 18]</span></span><br><span class="line"><span class="built_in">print</span>(a ** <span class="number">2</span>)  <span class="comment"># 输出: [1 4 9]</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>矩阵运算</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">A = np.array([[<span class="number">1</span>, <span class="number">2</span>], [<span class="number">3</span>, <span class="number">4</span>]])</span><br><span class="line">B = np.array([[<span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>]])</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(np.dot(A, B))</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># [[19 22]</span></span><br><span class="line"><span class="comment">#  [43 50]]</span></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>数组形状获取和重塑</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">array = np.array([[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>]])</span><br><span class="line"><span class="built_in">print</span>(array.shape)  <span class="comment"># 输出: (2, 3)</span></span><br><span class="line"></span><br><span class="line">reshaped_array = array.reshape((<span class="number">3</span>, <span class="number">2</span>))</span><br><span class="line"><span class="built_in">print</span>(reshaped_array)</span><br><span class="line"><span class="comment"># 输出:</span></span><br><span class="line"><span class="comment"># [[1 2]</span></span><br><span class="line"><span class="comment">#  [3 4]</span></span><br><span class="line"><span class="comment">#  [5 6]]</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div>
+</li>
+<li><p>例子：使用NumPy加载和处理图像数据</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_custom_data</span>(<span class="params">data_dir</span>):</span><br><span class="line">    images = []</span><br><span class="line">    labels = []</span><br><span class="line">    <span class="keyword">for</span> file_name <span class="keyword">in</span> os.listdir(data_dir):</span><br><span class="line">        <span class="keyword">if</span> file_name.endswith(<span class="string">&#x27;.png&#x27;</span>):</span><br><span class="line">            label = <span class="built_in">int</span>(file_name.split(<span class="string">&#x27;_&#x27;</span>)[<span class="number">0</span>])</span><br><span class="line">            img_path = os.path.join(data_dir, file_name)</span><br><span class="line">            img = Image.<span class="built_in">open</span>(img_path).convert(<span class="string">&#x27;L&#x27;</span>)</span><br><span class="line">            img = img.resize((<span class="number">28</span>, <span class="number">28</span>))</span><br><span class="line">            img_array = np.array(img)</span><br><span class="line">            images.append(img_array)</span><br><span class="line">            labels.append(label)</span><br><span class="line">    <span class="keyword">return</span> np.array(images), np.array(labels)</span><br><span class="line"></span><br><span class="line">custom_data_dir = <span class="string">&#x27;path_to_your_custom_data&#x27;</span></span><br><span class="line">x_custom, y_custom = load_custom_data(custom_data_dir)</span><br><span class="line">x_custom = x_custom / <span class="number">255.0</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(x_custom.shape)  <span class="comment"># 输出图像数组的形状，例如: (num_images, 28, 28)</span></span><br><span class="line"><span class="built_in">print</span>(y_custom.shape)  <span class="comment"># 输出标签数组的形状，例如: (num_images,)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></div></li>
+</ul>
+</li>
+</ul>
+
         </div>
 
         
@@ -810,7 +1022,7 @@
         
             <li>
                 <strong>Updated at
-                    :</strong> 2024-06-15 01:32:39
+                    :</strong> 2024-06-21 03:11:25
             </li>
         
         <li>
@@ -853,6 +1065,18 @@
                 
                     <li class="tag-item mx-0.5">
                         <a href="/RicardoBlog/tags/BCI/">#BCI</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/RicardoBlog/tags/NN/">#NN</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/RicardoBlog/tags/RNN/">#RNN</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item mx-0.5">
+                        <a href="/RicardoBlog/tags/LSTM/">#LSTM</a>&nbsp;
                     </li>
                 
             </ul>
@@ -965,7 +1189,7 @@
     <div class="post-toc">
         <div class="toc-title">On this page</div>
         <div class="page-title">Msc Project Feedback I</div>
-        
+        <ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Neural-Network%E5%9F%BA%E6%9C%AC%E7%BB%84%E6%88%90%E9%83%A8%E5%88%86"><span class="nav-text">Neural Network基本组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Simple-NN-Examples"><span class="nav-text">Simple NN Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E7%9A%84FNN-%E5%89%8D%E9%A6%88%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="nav-text">一个简单的FNN-前馈神经网络</span></a></li><li class="nav-item nav-level-4"><a class="nav-link"><span class="nav-text"></span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Python-Tuple-Review%E5%85%83%E7%BB%84%E5%A4%8D%E4%B9%A0"><span class="nav-text">Python-Tuple Review元组复习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Unpacking"><span class="nav-text">Unpacking</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Access"><span class="nav-text">Access</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-%E4%BB%80%E4%B9%88%E5%8F%AB%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AF%84%E4%BC%B0%EF%BC%8C%E6%88%91%E4%B8%BA%E5%95%A5%E8%A6%81%E8%AF%84%E4%BC%B0%EF%BC%8C%E6%80%8E%E4%B9%88%E8%AF%84%E4%BC%B0"><span class="nav-text">Q-什么叫模型的评估，我为啥要评估，怎么评估</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-%E4%BB%80%E4%B9%88%E5%8F%AB%E5%BD%92%E4%B8%80%E5%8C%96%EF%BC%8C%E4%B8%BA%E5%95%A5%E8%A6%81%E5%BD%92%E4%B8%80%E5%8C%96%EF%BC%8C%E5%BD%92%E4%B8%80%E5%8C%96%E6%9C%89%E6%B2%A1%E6%9C%89%E5%8E%9F%E5%88%99%E5%92%8C%E8%A7%84%E5%88%99"><span class="nav-text">Q-什么叫归一化，为啥要归一化，归一化有没有原则和规则</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Min-max%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">Min-max归一化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Z-score%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">Z-score归一化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%80%E5%A4%A7%E7%BB%9D%E5%AF%B9%E5%80%BC%E5%BD%92%E4%B8%80%E5%8C%96"><span class="nav-text">最大绝对值归一化</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Sample-using-Z-score-and-Min-Max"><span class="nav-text">Sample using Z-score and Min-Max</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-%E6%98%AF%E4%B8%8D%E6%98%AF%E5%8F%AA%E6%9C%89%E6%88%91%E8%87%AA%E5%B7%B1%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A0%BC%E5%BC%8F%E5%92%8C%E7%8E%B0%E5%AD%98%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E5%BA%93%E7%9A%84%E6%A0%87%E5%87%86%E6%95%B0%E6%8D%AE%E9%9B%86%E4%B8%80%E8%87%B4%EF%BC%8C%E6%88%91%E6%89%8D%E8%83%BD%E8%BF%9B%E8%A1%8C%E8%AE%AD%E7%BB%83%E3%80%81%E5%8A%A0%E8%BD%BD%E3%80%81%E9%A2%84%E6%B5%8B"><span class="nav-text">Q-是不是只有我自己的数据格式和现存机器学习库的标准数据集一致，我才能进行训练、加载、预测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Q-numpy%E6%95%B0%E7%BB%84%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%8Cnumpy%E5%9F%BA%E6%9C%AC%E6%95%99%E5%AD%A6"><span class="nav-text">Q-numpy数组是什么，numpy基本教学</span></a></li></ol></li></ol>
 
     </div>
 </div>
@@ -998,7 +1222,7 @@
                 
                 <p class="post-count space-x-0.5">
                     <span>
-                        21 posts in total
+                        22 posts in total
                     </span>
                     
                 </p>
